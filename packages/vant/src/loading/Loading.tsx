@@ -22,6 +22,17 @@ const CircularIcon = (
 
 export type LoadingType = 'circular' | 'spinner';
 
+/**
+ * @summary Loading 加载 - 加载图标组件，用于表示加载中
+ * @attr {string} type - 加载类型，可选值为 spinner，默认 circular
+ * @attr {string} color - 颜色
+ * @attr {number|string} size - 加载图标大小，默认 30px
+ * @attr {string} text-size - 文字大小
+ * @attr {string} text-color - 文字颜色
+ * @attr {boolean} vertical - 是否垂直排列图标和文字，默认 false
+ * @slot default - 加载文字
+ * @slot icon - 自定义加载图标
+ */
 export const loadingProps = {
   size: numericProp,
   type: makeStringProp<LoadingType>('circular'),

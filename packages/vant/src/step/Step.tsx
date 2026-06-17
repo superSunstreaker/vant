@@ -12,6 +12,13 @@ import { Icon } from '../icon';
 
 const [name, bem] = createNamespace('step');
 
+/**
+ * @summary Step 步骤条子项 - 必须作为 Steps 的子组件使用，用于展示单个步骤
+ * @slot default - 步骤内容
+ * @slot active-icon - 当前步骤的自定义图标
+ * @slot finish-icon - 已完成步骤的自定义图标
+ * @slot inactive-icon - 未完成步骤的自定义图标
+ */
 export default defineComponent({
   name,
 

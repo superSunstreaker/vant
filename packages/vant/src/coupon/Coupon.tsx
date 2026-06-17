@@ -26,6 +26,13 @@ export type CouponInfo = {
 
 const [name, bem, t] = createNamespace('coupon');
 
+/**
+ * @summary Coupon 优惠券 - 优惠券卡片组件，通常在 CouponList 中使用
+ * @attr {boolean} chosen - 是否选中，默认 false
+ * @attr {CouponInfo} coupon - 优惠券信息对象（必填），包含 id、name、value、startAt、endAt、description 等字段
+ * @attr {boolean} disabled - 是否不可用，默认 false
+ * @attr {string} currency - 货币符号，默认 ¥
+ */
 export default defineComponent({
   name,
 

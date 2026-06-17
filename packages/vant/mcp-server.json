@@ -1,0 +1,198 @@
+{
+  "name": "vant",
+  "version": "4.9.24",
+  "description": "Vant 移动端 Vue3 UI 组件库 - MCP Server 配置",
+  "components": {
+    "source": "./component-meta.json",
+    "total": 101,
+    "format": "vue3"
+  },
+  "tools": [
+    {
+      "name": "get_component_list",
+      "description": "获取所有可用 Vant 组件列表",
+      "input": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "组件名称或描述关键词（可选，用于模糊搜索）"
+          }
+        }
+      },
+      "output": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "file": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "get_component_detail",
+      "description": "获取指定 Vant 组件的详细属性、事件、插槽信息",
+      "input": {
+        "type": "object",
+        "properties": {
+          "componentName": {
+            "type": "string",
+            "description": "组件名称（如：VanButton、VanField）"
+          }
+        },
+        "required": [
+          "componentName"
+        ]
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "props": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "default": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "slots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "methods": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "string"
+                },
+                "returnType": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "generate_component_code",
+      "description": "根据组件名称和参数生成 Vant 组件使用代码示例",
+      "input": {
+        "type": "object",
+        "properties": {
+          "componentName": {
+            "type": "string",
+            "description": "组件名称（如：VanButton）"
+          },
+          "props": {
+            "type": "object",
+            "description": "组件属性键值对"
+          },
+          "slots": {
+            "type": "object",
+            "description": "插槽内容"
+          }
+        },
+        "required": [
+          "componentName"
+        ]
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "component": "VanButton",
+      "template": "<van-button type=\"primary\" @click=\"handleClick\">点击我</van-button>",
+      "script": "const handleClick = () => { console.log('按钮被点击') }"
+    },
+    {
+      "component": "VanField",
+      "template": "<van-field v-model=\"value\" label=\"用户名\" placeholder=\"请输入用户名\" />",
+      "script": "import { ref } from 'vue'\nconst value = ref('')"
+    },
+    {
+      "component": "VanPicker",
+      "template": "<van-picker v-model=\"selectedValues\" :columns=\"columns\" @confirm=\"onConfirm\" />",
+      "script": "const columns = [{ text: '杭州', value: 'Hangzhou' }]\nconst selectedValues = ref([])\nconst onConfirm = ({ selectedValues }) => {}\n"
+    }
+  ]
+}

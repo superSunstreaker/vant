@@ -12,6 +12,11 @@ export type SkeletonAvatarShape = 'square' | 'round';
 
 const [name, bem] = createNamespace('skeleton-avatar');
 
+/**
+ * @summary SkeletonAvatar 骨架屏头像 - 用于在内容加载时显示头像占位
+ * @attr {number|string} avatar-size - 头像大小
+ * @attr {string} avatar-shape - 头像形状，可选值为 square，默认 round
+ */
 export const skeletonAvatarProps = {
   avatarSize: numericProp,
   avatarShape: makeStringProp<SkeletonAvatarShape>('round'),

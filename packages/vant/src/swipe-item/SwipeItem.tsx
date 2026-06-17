@@ -17,6 +17,11 @@ import { useExpose } from '../composables/use-expose';
 
 const [name, bem] = createNamespace('swipe-item');
 
+/**
+ * @summary SwipeItem 轮播子项 - 必须作为 Swipe 的子组件使用，用于展示单个轮播内容
+ * @slot default - 轮播项内容
+ * @event click - 点击轮播项时触发，参数：event: MouseEvent
+ */
 export default defineComponent({
   name,
 

@@ -22,7 +22,8 @@
     "test:update": "rstest run -u",
     "test:watch": "rstest",
     "test:coverage": "rstest run --coverage",
-    "open:coverage": "open test/coverage/lcov-report/index.html"
+    "open:coverage": "open test/coverage/lcov-report/index.html",
+    "extract:meta": "node scripts/extract-meta.mjs"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

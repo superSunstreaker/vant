@@ -13,8 +13,7 @@
   },
   "nano-staged": {
     "*.md": "prettier --write",
-    "*.{ts,tsx,js,vue,less}": "prettier --write",
-    "*.{ts,tsx,js,mjs,cjs}": "rslint --fix"
+    "*.{ts,tsx,js,vue,less}": "prettier --write"
   },
   "engines": {
     "pnpm": ">= 10.33.2"

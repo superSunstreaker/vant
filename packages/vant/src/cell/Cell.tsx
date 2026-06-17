@@ -28,6 +28,30 @@ export type CellSize = 'normal' | 'large';
 
 export type CellArrowDirection = 'up' | 'down' | 'left' | 'right';
 
+/**
+ * @summary Cell 单元格 - 单元格为列表中的展示项
+ * @attr {string} title - 左侧标题
+ * @attr {string|number} value - 右侧内容
+ * @attr {string|number} label - 标题下方的描述信息
+ * @attr {string} size - 单元格大小，可选值为 large，默认 normal
+ * @attr {string} icon - 左侧图标名称或图片链接
+ * @attr {string} icon-prefix - 图标类名前缀
+ * @attr {string} tag - 根节点标签，默认 div
+ * @attr {boolean} border - 是否显示内边框，默认 true
+ * @attr {boolean} center - 是否使内容垂直居中，默认 false
+ * @attr {boolean} is-link - 是否展示右侧箭头并开启点击反馈，默认 false
+ * @attr {boolean} required - 是否显示表单必填星号，默认 false
+ * @attr {boolean} clickable - 是否开启点击反馈，默认 false
+ * @attr {string} arrow-direction - 箭头方向，可选值为 left / up / down，默认 right
+ * @attr {string} title-style - 标题样式
+ * @slot default - 自定义右侧内容
+ * @slot title - 自定义左侧标题
+ * @slot label - 自定义标题下方描述
+ * @slot icon - 自定义左侧图标
+ * @slot right-icon - 自定义右侧图标
+ * @slot extra - 自定义最右侧额外内容
+ * @event click - 点击单元格时触发，参数：event: MouseEvent
+ */
 export const cellSharedProps = {
   tag: makeStringProp<keyof HTMLElementTagNameMap>('div'),
   icon: String,

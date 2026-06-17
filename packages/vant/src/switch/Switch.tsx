@@ -5,6 +5,20 @@ import { Loading } from '../loading';
 
 const [name, bem] = createNamespace('switch');
 
+/**
+ * @summary Switch 开关 - 用于在打开和关闭状态之间进行切换
+ * @attr {any} v-model - 开关选中状态
+ * @attr {boolean} loading - 是否为加载状态，默认 false
+ * @attr {boolean} disabled - 是否为禁用状态，默认 false
+ * @attr {number|string} size - 开关尺寸，默认 30px
+ * @attr {string} active-color - 打开时的背景色
+ * @attr {string} inactive-color - 关闭时的背景色
+ * @attr {any} active-value - 打开时的值，默认 true
+ * @attr {any} inactive-value - 关闭时的值，默认 false
+ * @slot node - 自定义按钮内容
+ * @event change - 开关状态切换时触发，参数：value: any
+ * @event update:model-value - 开关状态变化时触发，参数：value: any
+ */
 export const switchProps = {
   size: numericProp,
   loading: Boolean,
