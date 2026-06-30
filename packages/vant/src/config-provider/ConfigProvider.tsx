@@ -37,6 +37,18 @@ export const CONFIG_PROVIDER_KEY: InjectionKey<ConfigProviderProvide> =
 
 export type ThemeVars = PropType<Record<string, Numeric>>;
 
+/**
+ * @summary ConfigProvider 全局配置 - 用于全局配置 Vant 组件，提供深色模式、主题定制等能力
+ * @attr {ConfigProviderTheme} theme - 主题风格，设置为 dark 来开启深色模式，全局生效，默认 light
+ * @attr {object} theme-vars - 自定义主题变量，局部生效
+ * @attr {object} theme-vars-dark - 仅在深色模式下生效的主题变量，优先级高于 theme-vars
+ * @attr {object} theme-vars-light - 仅在浅色模式下生效的主题变量，优先级高于 theme-vars
+ * @attr {ConfigProviderThemeVarsScope} theme-vars-scope - CSS 变量生效范围，设置为 global 整个页面生效，默认 local
+ * @attr {string} tag - 根节点对应的 HTML 标签名，默认 div
+ * @attr {number} z-index - 设置所有弹窗类组件的 z-index，该属性对全局生效，默认 2000
+ * @attr {string} icon-prefix - 所有图标的类名前缀，默认 van-icon
+ * @slot default - 默认插槽，包裹需要全局配置的子组件
+ */
 export const configProviderProps = {
   tag: makeStringProp<keyof HTMLElementTagNameMap>('div'),
   theme: makeStringProp<ConfigProviderTheme>('light'),

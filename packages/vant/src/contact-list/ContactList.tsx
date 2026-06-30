@@ -20,6 +20,16 @@ export type ContactListItem = {
   isDefault?: boolean;
 };
 
+/**
+ * @summary ContactList 联系人列表 - 展示联系人列表
+ * @attr {number|string} v-model - 当前选中联系人的 id
+ * @attr {ContactListItem[]} list - 联系人列表，默认 []
+ * @attr {string} add-text - 新建按钮文案，默认 新建联系人
+ * @attr {string} default-tag-text - 默认联系人标签文案
+ * @event add - 点击新增按钮时触发
+ * @event edit - 点击编辑按钮时触发，参数：contact: ContactListItem, index: number
+ * @event select - 切换选中的联系人时触发，参数：contact: ContactListItem, index: number
+ */
 export const contactListProps = {
   list: Array as PropType<ContactListItem[]>,
   addText: String,

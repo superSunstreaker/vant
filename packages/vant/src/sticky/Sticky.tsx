@@ -33,6 +33,17 @@ const [name, bem] = createNamespace('sticky');
 
 export type StickyPosition = 'top' | 'bottom';
 
+/**
+ * @summary Sticky 粘性布局 - 当组件在屏幕范围内时，会按照正常的布局排列，当组件滚出屏幕范围时，始终会固定在屏幕顶部
+ * @attr {StickyPosition} position - 吸附位置，可选值为 bottom，默认 top
+ * @attr {number|string} offset-top - 吸顶时与顶部的距离，支持 px vw vh rem 单位，默认 px，默认 0
+ * @attr {number|string} offset-bottom - 吸底时与底部的距离，支持 px vw vh rem 单位，默认 px，默认 0
+ * @attr {number|string} z-index - 吸顶时的 z-index，默认 99
+ * @attr {Element} container - 容器对应的 HTML 节点
+ * @slot default - 默认插槽
+ * @event change - 当吸顶状态改变时触发，参数：isFixed: boolean
+ * @event scroll - 滚动时触发，参数：{ scrollTop: number, isFixed: boolean }
+ */
 export const stickyProps = {
   zIndex: numericProp,
   position: makeStringProp<StickyPosition>('top'),

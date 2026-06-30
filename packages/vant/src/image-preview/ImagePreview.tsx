@@ -53,6 +53,36 @@ const popupProps = [
   'closeOnPopstate',
 ] as const;
 
+/**
+ * @summary ImagePreview 图片预览 - 图片放大预览，支持组件调用和函数调用两种方式
+ * @attr {boolean} show - 是否显示图片预览，默认 false
+ * @attr {boolean} loop - 是否开启循环播放，默认 true
+ * @attr {string[]} images - 需要预览的图片 URL 数组，默认 []
+ * @attr {number|string} min-zoom - 最小缩放比例，默认 1/3
+ * @attr {number|string} max-zoom - 最大缩放比例，默认 3
+ * @attr {boolean} vertical - 是否垂直滑动，默认 false
+ * @attr {boolean} closeable - 是否显示关闭图标，默认 false
+ * @attr {string} close-icon - 关闭图标名称或图片链接，默认 clear
+ * @attr {PopupCloseIconPosition} close-icon-position - 关闭图标位置，默认 top-right
+ * @attr {string} transition - 动画类名
+ * @attr {number|string} swipe-duration - 动画时长，单位 ms，默认 300
+ * @attr {number|string} start-position - 图片初始位置索引，默认 0
+ * @attr {boolean} show-index - 是否显示页码，默认 true
+ * @attr {boolean} show-indicators - 是否显示指示器，默认 false
+ * @attr {boolean} close-on-click-image - 是否在点击图片后关闭，默认 true
+ * @attr {boolean} close-on-click-overlay - 是否在点击遮罩层后关闭，默认 true
+ * @attr {boolean} close-on-popstate - 是否在页面回退时自动关闭，默认 true
+ * @attr {string|Element} teleport - 指定挂载的节点
+ * @attr {Function} before-close - 关闭前的回调函数
+ * @slot index - 自定义页码内容
+ * @slot cover - 自定义覆盖在图片预览上方的内容
+ * @slot image - 自定义图片内容
+ * @event scale - 缩放图片时触发
+ * @event close - 关闭时触发，参数：{ index, url }
+ * @event closed - 关闭且动画结束后触发
+ * @event change - 切换图片时触发，参数：index: number
+ * @event long-press - 长按图片时触发，参数：{ index }
+ */
 export const imagePreviewProps = {
   show: Boolean,
   loop: truthProp,

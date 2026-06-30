@@ -24,6 +24,20 @@ import { useLockScroll } from '../composables/use-lock-scroll';
 import { useTouch } from '../composables/use-touch';
 import { useSyncPropRef } from '../composables/use-sync-prop-ref';
 
+/**
+ * @summary FloatingPanel 浮动面板 - 浮动在页面底部的面板，可以上下拖动来浏览内容，常用于提供额外的功能或信息
+ * @attr {number|string} v-model:height - 当前面板的显示高度，默认 0
+ * @attr {number[]} anchors - 设置自定义锚点，单位 px，默认 [100, window.innerHeight * 0.6]
+ * @attr {number|string} duration - 动画时长，单位秒，设置为 0 可以禁用动画，默认 0.3
+ * @attr {boolean} magnetic - 是否启用磁力吸附到锚点，默认 true
+ * @attr {boolean} content-draggable - 允许拖拽内容容器，默认 true
+ * @attr {boolean} draggable - 是否允许拖拽面板，默认 true
+ * @attr {boolean} lock-scroll - 当不拖拽时，是否锁定背景滚动，默认 false
+ * @attr {boolean} safe-area-inset-bottom - 是否开启底部安全区适配，默认 true
+ * @slot default - 自定义面板内容
+ * @slot header - 自定义面板标头
+ * @event height-change - 面板显示高度改变且结束拖动后触发，参数：{ height: number }
+ */
 export const floatingPanelProps = {
   height: makeNumericProp(0),
   anchors: makeArrayProp<number>(),

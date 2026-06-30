@@ -22,6 +22,21 @@ import type { SkeletonAvatarShape } from '../skeleton-avatar';
 const [name, bem] = createNamespace('skeleton');
 const DEFAULT_LAST_ROW_WIDTH = '60%';
 
+/**
+ * @summary Skeleton 骨架屏 - 用于在内容加载过程中展示一组占位图形
+ * @attr {number|string} row - 段落占位图行数，默认 0
+ * @attr {number|string|Array} row-width - 段落占位图宽度，可传数组来设置每一行的宽度，默认 100%
+ * @attr {boolean} title - 是否显示标题占位图，默认 false
+ * @attr {boolean} avatar - 是否显示头像占位图，默认 false
+ * @attr {boolean} loading - 是否显示骨架屏，传 false 时会展示子组件内容，默认 true
+ * @attr {boolean} animate - 是否开启动画，默认 true
+ * @attr {boolean} round - 是否将标题和段落显示为圆角风格，默认 false
+ * @attr {number|string} title-width - 标题占位图宽度，默认 40%
+ * @attr {number|string} avatar-size - 头像占位图大小，默认 32px
+ * @attr {string} avatar-shape - 头像占位图形状，可选值为 square，默认 round
+ * @slot default - 骨架屏内容
+ * @slot template - 自定义内容
+ */
 export const skeletonProps = {
   row: makeNumericProp(0),
   round: Boolean,

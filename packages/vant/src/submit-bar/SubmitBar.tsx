@@ -20,6 +20,29 @@ const [name, bem, t] = createNamespace('submit-bar');
 
 export type SubmitBarTextAlign = 'left' | 'right';
 
+/**
+ * @summary SubmitBar 提交订单栏 - 用于展示订单金额与提交订单
+ * @attr {number} price - 金额（单位分）
+ * @attr {number|string} decimal-length - 金额小数点位数，默认 2
+ * @attr {string} label - 金额左侧文案，默认 合计：
+ * @attr {string} suffix-label - 金额右侧文案
+ * @attr {SubmitBarTextAlign} text-align - 金额文案对齐方向，可选值为 left，默认 right
+ * @attr {string} button-text - 按钮文字
+ * @attr {string} button-type - 按钮类型，默认 danger
+ * @attr {string} button-color - 自定义按钮颜色
+ * @attr {string} tip - 在订单栏上方的提示文案
+ * @attr {string} tip-icon - 提示文案左侧的图标名称或图片链接
+ * @attr {string} currency - 货币符号，默认 ¥
+ * @attr {boolean} disabled - 是否禁用按钮，默认 false
+ * @attr {boolean} loading - 是否显示将按钮显示为加载中状态，默认 false
+ * @attr {boolean} safe-area-inset-bottom - 是否开启底部安全区适配，默认 true
+ * @attr {boolean} placeholder - 是否在标签位置生成一个等高的占位元素，默认 false
+ * @slot default - 自定义订单栏左侧内容
+ * @slot button - 自定义按钮
+ * @slot top - 自定义订单栏上方内容
+ * @slot tip - 提示文案中的额外内容
+ * @event submit - 按钮点击事件回调
+ */
 export const submitBarProps = {
   tip: String,
   label: String,

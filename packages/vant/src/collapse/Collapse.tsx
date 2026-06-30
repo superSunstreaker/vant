@@ -30,6 +30,14 @@ export type CollapseToggleAllOptions =
 
 export const COLLAPSE_KEY: InjectionKey<CollapseProvide> = Symbol(name);
 
+/**
+ * @summary Collapse 折叠面板 - 将一组内容放置在多个折叠面板中，点击面板的标题可以展开或收缩其内容
+ * @attr {number|string|Array} v-model - 当前展开面板的 name，手风琴模式为 number|string，非手风琴模式为数组
+ * @attr {boolean} accordion - 是否开启手风琴模式，默认 false
+ * @attr {boolean} border - 是否显示外边框，默认 true
+ * @slot default - 默认插槽，用于放置 CollapseItem
+ * @event change - 切换面板时触发，参数：activeNames: 类型与 v-model 绑定的值一致
+ */
 export const collapseProps = {
   border: truthProp,
   accordion: Boolean,

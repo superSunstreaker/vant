@@ -21,6 +21,16 @@ export interface BarrageItem {
   text: string | number;
 }
 
+/**
+ * @summary Barrage 弹幕 - 实现观看视频时弹出的评论性字幕功能
+ * @attr {BarrageItem[]} v-model - 弹幕数据
+ * @attr {boolean} auto-play - 是否自动播放弹幕，默认 true
+ * @attr {number|string} rows - 弹幕文字行数，默认 4
+ * @attr {number|string} top - 弹幕文字区域顶部间距，单位 px，默认 10
+ * @attr {number|string} duration - 弹幕文字滑过容器的时间，单位 ms，默认 4000
+ * @attr {number} delay - 弹幕动画延时，单位 ms，默认 300
+ * @slot default - 弹幕组件子元素
+ */
 export const barrageProps = {
   top: makeNumericProp(10),
   rows: makeNumericProp(4),
@@ -131,9 +141,8 @@ export default defineComponent({
     }>({});
 
     onMounted(async () => {
-      rootStyle.value[
-        '--move-distance'
-      ] = `-${barrageWrapper.value?.offsetWidth}px`;
+      rootStyle.value['--move-distance'] =
+        `-${barrageWrapper.value?.offsetWidth}px`;
       await nextTick();
       updateBarrages(props.modelValue, []);
     });

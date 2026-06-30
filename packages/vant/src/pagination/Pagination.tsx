@@ -31,6 +31,24 @@ const makePage = (
 
 export type PaginationMode = 'simple' | 'multi';
 
+/**
+ * @summary Pagination 分页 - 数据量过多时，采用分页的形式将数据分隔，每次只加载一个页面
+ * @attr {number} v-model - 当前页码
+ * @attr {PaginationMode} mode - 显示模式，可选值为 simple，默认 multi
+ * @attr {string} prev-text - 上一页按钮文字，默认 上一页
+ * @attr {string} next-text - 下一页按钮文字，默认 下一页
+ * @attr {number|string} page-count - 总页数，默认根据页数计算
+ * @attr {number|string} total-items - 总记录数，默认 0
+ * @attr {number|string} items-per-page - 每页记录数，默认 10
+ * @attr {number|string} show-page-size - 显示的页码个数，默认 5
+ * @attr {boolean} force-ellipses - 是否显示省略号，默认 false
+ * @attr {boolean} show-prev-button - 是否展示上一页按钮，默认 true
+ * @attr {boolean} show-next-button - 是否展示下一页按钮，默认 true
+ * @slot page - 自定义页码
+ * @slot prev-text - 自定义上一页按钮文字
+ * @slot next-text - 自定义下一页按钮文字
+ * @event change - 页码改变时触发
+ */
 export const paginationProps = {
   mode: makeStringProp<PaginationMode>('multi'),
   prevText: String,

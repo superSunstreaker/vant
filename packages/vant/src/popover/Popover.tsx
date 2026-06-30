@@ -58,6 +58,30 @@ const popupProps = [
   'closeOnClickOverlay',
 ] as const;
 
+/**
+ * @summary Popover 气泡弹出框 - 弹出式的气泡菜单
+ * @attr {boolean} v-model:show - 是否展示气泡弹出层，默认 false
+ * @attr {PopoverAction[]} actions - 选项列表，默认 []
+ * @attr {PopoverActionsDirection} actions-direction - 选项列表的排列方向，可选值为 horizontal，默认 vertical
+ * @attr {PopoverPlacement} placement - 弹出位置，默认 bottom
+ * @attr {PopoverTheme} theme - 主题风格，可选值为 dark，默认 light
+ * @attr {PopoverTrigger} trigger - 触发方式，可选值为 manual，默认 click
+ * @attr {number|string} duration - 动画时长，单位秒，设置为 0 可以禁用动画，默认 0.3
+ * @attr {Array} offset - 出现位置的偏移量，默认 [0, 8]
+ * @attr {boolean} overlay - 是否显示遮罩层，默认 false
+ * @attr {string|Array|object} overlay-class - 自定义遮罩层类名
+ * @attr {object} overlay-style - 自定义遮罩层样式
+ * @attr {boolean} show-arrow - 是否展示小箭头，默认 true
+ * @attr {boolean} close-on-click-action - 是否在点击选项后关闭，默认 true
+ * @attr {boolean} close-on-click-outside - 是否在点击外部元素后关闭菜单，默认 true
+ * @attr {boolean} close-on-click-overlay - 是否在点击遮罩层后关闭菜单，默认 true
+ * @attr {string|Element} teleport - 指定挂载的节点，默认 body
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @slot default - 自定义菜单内容
+ * @slot reference - 触发 Popover 显示的元素内容
+ * @slot action - 自定义选项内容
+ * @event select - 点击选项时触发，参数：action: PopoverAction, index: number
+ */
 export const popoverProps = {
   show: Boolean,
   theme: makeStringProp<PopoverTheme>('light'),

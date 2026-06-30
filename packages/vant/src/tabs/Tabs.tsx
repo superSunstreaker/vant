@@ -59,6 +59,37 @@ import type { TabsProvide, TabsType } from './types';
 
 const [name, bem] = createNamespace('tabs');
 
+/**
+ * @summary Tabs 标签页 - 选项卡组件，用于在不同的内容区域之间进行切换
+ * @attr {number|string} v-model:active - 绑定当前选中标签的标识符，默认 0
+ * @attr {TabsType} type - 样式风格类型，可选值为 card，默认 line
+ * @attr {string} color - 标签主题色，默认 #1989fa
+ * @attr {string} background - 标签栏背景色，默认 white
+ * @attr {number|string} duration - 动画时间，单位秒，设置为 0 可以禁用动画，默认 0.3
+ * @attr {number|string} line-width - 底部条宽度，默认单位 px，默认 40px
+ * @attr {number|string} line-height - 底部条高度，默认单位 px，默认 3px
+ * @attr {boolean} animated - 是否开启切换标签内容时的转场动画，默认 false
+ * @attr {boolean} border - 是否显示标签栏外边框，仅在 type="line" 时有效，默认 false
+ * @attr {boolean} ellipsis - 是否省略过长的标题文字，默认 true
+ * @attr {boolean} sticky - 是否使用粘性布局，默认 false
+ * @attr {boolean} shrink - 是否开启左侧收缩布局，默认 false
+ * @attr {boolean} swipeable - 是否开启手势左右滑动切换，默认 false
+ * @attr {boolean} lazy-render - 是否开启延迟渲染，默认 true
+ * @attr {boolean} scrollspy - 是否开启滚动导航，默认 false
+ * @attr {boolean} show-header - 是否显示标题栏，默认 true
+ * @attr {number|string} offset-top - 粘性布局下吸顶时与顶部的距离，默认 0
+ * @attr {number|string} swipe-threshold - 滚动阈值，默认 5
+ * @attr {string} title-active-color - 标题选中态颜色
+ * @attr {string} title-inactive-color - 标题默认态颜色
+ * @attr {Function} before-change - 切换标签前的回调函数，返回 false 可阻止切换，支持返回 Promise
+ * @slot nav-left - 标签栏左侧内容
+ * @slot nav-right - 标签栏右侧内容
+ * @slot nav-bottom - 标签栏下方内容
+ * @event click-tab - 点击标签时触发，参数：{ name: string|number, title: string, event: MouseEvent, disabled: boolean }
+ * @event change - 当前激活的标签改变时触发，参数：name: string|number, title: string
+ * @event rendered - 标签内容首次渲染时触发（仅在开启延迟渲染后触发），参数：name: string|number, title: string
+ * @event scroll - 滚动时触发，仅在 sticky 模式下生效，参数：{ scrollTop: number, isFixed: boolean }
+ */
 export const tabsProps = {
   type: makeStringProp<TabsType>('line'),
   color: String,

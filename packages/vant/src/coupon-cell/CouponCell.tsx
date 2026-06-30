@@ -17,6 +17,15 @@ import type { CouponInfo } from '../coupon';
 
 const [name, bem, t] = createNamespace('coupon-cell');
 
+/**
+ * @summary CouponCell 优惠券单元格 - 以单元格形式展示当前选中的优惠券
+ * @attr {string} title - 单元格标题，默认 优惠券
+ * @attr {number|number[]} chosen-coupon - 当前选中优惠券的索引，默认 -1
+ * @attr {CouponInfo[]} coupons - 可用优惠券列表，默认 []
+ * @attr {boolean} editable - 能否切换优惠券，默认 true
+ * @attr {boolean} border - 是否显示内边框，默认 true
+ * @attr {string} currency - 货币符号，默认 ¥
+ */
 export const couponCellProps = {
   title: String,
   border: truthProp,

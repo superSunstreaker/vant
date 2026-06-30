@@ -76,6 +76,69 @@ import type {
 const [name, bem] = createNamespace('field');
 
 // provide to Search component to inherit
+/**
+ * @summary Field 输入框 - 用户可以在文本框内输入或编辑文字
+ * @attr {number|string} v-model - 当前输入的值
+ * @attr {string} label - 输入框左侧文本
+ * @attr {string} name - 名称，作为提交表单时的标识符
+ * @attr {string} id - 输入框 id，同时会设置 label 的 for 属性
+ * @attr {FieldType} type - 输入框类型，支持原生 input 标签的所有 type 属性，额外支持 digit 类型，默认 text
+ * @attr {string} size - 大小，可选值为 large / normal
+ * @attr {number|string} maxlength - 输入的最大字符数
+ * @attr {number} min - 输入框类型为 number 或 digit 时设置可允许的最小值
+ * @attr {number} max - 输入框类型为 number 或 digit 时设置可允许的最大值
+ * @attr {string} placeholder - 输入框占位提示文字
+ * @attr {boolean} border - 是否显示内边框，默认 true
+ * @attr {boolean} disabled - 是否禁用输入框，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，默认 false
+ * @attr {boolean} colon - 是否在 label 后面添加冒号，默认 false
+ * @attr {boolean|'auto'} required - 是否显示表单必填星号
+ * @attr {boolean} center - 是否使内容垂直居中，默认 false
+ * @attr {boolean} clearable - 是否启用清除图标，默认 false
+ * @attr {string} clear-icon - 清除图标名称或图片链接，默认 clear
+ * @attr {FieldClearTrigger} clear-trigger - 显示清除图标的时机，默认 focus
+ * @attr {boolean} clickable - 是否开启点击反馈，默认 false
+ * @attr {boolean} is-link - 是否展示右侧箭头并开启点击反馈，默认 false
+ * @attr {boolean} autofocus - 是否自动聚焦，默认 false
+ * @attr {boolean} show-word-limit - 是否显示字数统计，需要设置 maxlength 属性，默认 false
+ * @attr {boolean} error - 是否将输入内容标红，默认 false
+ * @attr {string} error-message - 底部错误提示文案
+ * @attr {FieldTextAlign} error-message-align - 错误提示文案对齐方式，默认 left
+ * @attr {Function} formatter - 输入内容格式化函数
+ * @attr {FieldFormatTrigger} format-trigger - 格式化函数触发的时机，默认 onChange
+ * @attr {string} arrow-direction - 箭头方向，可选值为 left / up / down，默认 right
+ * @attr {string|Array|object} label-class - 左侧文本额外类名
+ * @attr {number|string} label-width - 左侧文本宽度，默认单位为 px，默认 6.2em
+ * @attr {FieldTextAlign} label-align - 左侧文本对齐方式，可选值为 center / right / top，默认 left
+ * @attr {FieldTextAlign} input-align - 输入框对齐方式，可选值为 center / right，默认 left
+ * @attr {boolean|FieldAutosizeConfig} autosize - 是否自适应内容高度，只对 textarea 有效，默认 false
+ * @attr {string} left-icon - 左侧图标名称或图片链接
+ * @attr {string} right-icon - 右侧图标名称或图片链接
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @attr {FieldRule[]} rules - 表单校验规则
+ * @attr {string} autocomplete - HTML 原生属性，用于控制自动完成功能
+ * @attr {string} autocapitalize - HTML 原生属性，用于控制文本输入时是否自动大写
+ * @attr {FieldEnterKeyHint} enterkeyhint - HTML 原生属性，用于控制回车键样式
+ * @attr {boolean} spellcheck - HTML 原生属性，用于检查元素的拼写错误
+ * @attr {string} autocorrect - HTML 原生属性，仅 Safari 适用，用于自动更正输入的文本
+ * @attr {string} inputmode - HTML 原生属性，用于指定输入框的输入模式
+ * @attr {number|string} rows - HTML 原生属性，用于指定输入框的可见文本行数，只对 textarea 有效
+ * @slot label - 自定义输入框左侧文本
+ * @slot input - 自定义输入框，使用此插槽后，与输入框相关的属性和事件将失效
+ * @slot left-icon - 自定义输入框头部图标
+ * @slot right-icon - 自定义输入框尾部图标
+ * @slot button - 自定义输入框尾部按钮
+ * @slot error-message - 自定义底部错误提示文案
+ * @slot extra - 自定义输入框最右侧的额外内容
+ * @event blur - 输入框失去焦点时触发，参数：event: Event
+ * @event focus - 输入框获得焦点时触发，参数：event: Event
+ * @event clear - 点击清除按钮时触发，参数：event: MouseEvent
+ * @event click-input - 点击输入区域时触发，参数：event: MouseEvent
+ * @event click-left-icon - 点击左侧图标时触发，参数：event: MouseEvent
+ * @event click-right-icon - 点击右侧图标时触发，参数：event: MouseEvent
+ * @event start-validate - 开始表单校验时触发
+ * @event end-validate - 结束表单校验时触发，参数：{ status: string, message: string }
+ */
 export const fieldSharedProps = {
   id: String,
   name: String,

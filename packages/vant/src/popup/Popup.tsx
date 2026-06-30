@@ -41,6 +41,41 @@ import { Overlay } from '../overlay';
 // Types
 import type { PopupPosition, PopupCloseIconPosition } from './types';
 
+/**
+ * @summary Popup 弹出层 - 弹出层容器，用于展示弹窗、信息提示等内容，支持多个弹出层叠加展示
+ * @attr {boolean} v-model:show - 是否显示弹出层，默认 false
+ * @attr {boolean} overlay - 是否显示遮罩层，默认 true
+ * @attr {PopupPosition} position - 弹出位置，可选值为 top / bottom / right / left，默认 center
+ * @attr {string|Array|object} overlay-class - 自定义遮罩层类名
+ * @attr {object} overlay-style - 自定义遮罩层样式
+ * @attr {object} overlay-props - 遮罩层属性，参考 Overlay 组件
+ * @attr {number|string} duration - 动画时长，单位秒，设置为 0 可以禁用动画，默认 0.3
+ * @attr {number|string} z-index - 将弹窗的 z-index 层级设置为一个固定值
+ * @attr {boolean} round - 是否显示圆角，默认 false
+ * @attr {boolean} destroy-on-close - 是否在关闭时销毁内容，默认 false
+ * @attr {boolean} lock-scroll - 是否锁定背景滚动，默认 true
+ * @attr {boolean} lazy-render - 是否在显示弹层时才渲染节点，默认 true
+ * @attr {boolean} close-on-popstate - 是否在页面回退时自动关闭，默认 false
+ * @attr {boolean} close-on-click-overlay - 是否在点击遮罩层后关闭，默认 true
+ * @attr {boolean} closeable - 是否显示关闭图标，默认 false
+ * @attr {string} close-icon - 关闭图标名称或图片链接，默认 cross
+ * @attr {PopupCloseIconPosition} close-icon-position - 关闭图标位置，默认 top-right
+ * @attr {Function} before-close - 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @attr {string} transition - 动画类名，等价于 transition 的 name 属性
+ * @attr {boolean} transition-appear - 是否在初始渲染时启用过渡动画，默认 false
+ * @attr {string|Element} teleport - 指定挂载的节点
+ * @attr {boolean} safe-area-inset-top - 是否开启顶部安全区适配，默认 false
+ * @attr {boolean} safe-area-inset-bottom - 是否开启底部安全区适配，默认 false
+ * @slot default - 弹窗内容
+ * @slot overlay-content - 遮罩层的内容
+ * @event open - 打开弹出层时立即触发
+ * @event close - 关闭弹出层时立即触发
+ * @event opened - 打开弹出层且动画结束后触发
+ * @event closed - 关闭弹出层且动画结束后触发
+ * @event click-overlay - 点击遮罩层时触发，参数：event: MouseEvent
+ * @event click-close-icon - 点击关闭图标时触发，参数：event: MouseEvent
+ */
 export const popupProps = extend({}, popupSharedProps, {
   round: Boolean,
   position: makeStringProp<PopupPosition>('center'),

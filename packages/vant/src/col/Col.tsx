@@ -11,6 +11,13 @@ import { ROW_KEY } from '../row/Row';
 
 const [name, bem] = createNamespace('col');
 
+/**
+ * @summary Col 列 - 用于栅格布局中的列
+ * @attr {number|string} span - 列元素宽度
+ * @attr {number|string} offset - 列元素偏移距离
+ * @attr {string} tag - 自定义元素标签，默认 div
+ * @slot default - 默认插槽
+ */
 export const colProps = {
   tag: makeStringProp<keyof HTMLElementTagNameMap>('div'),
   span: makeNumericProp(0),

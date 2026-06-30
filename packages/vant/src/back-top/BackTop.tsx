@@ -34,6 +34,18 @@ import { Icon } from '../icon';
 
 const [name, bem] = createNamespace('back-top');
 
+/**
+ * @summary BackTop 回到顶部 - 返回页面顶部的操作按钮
+ * @attr {string|HTMLElement} target - 触发滚动的目标对象，支持传入选择器或 DOM 元素，默认最近的父级滚动容器
+ * @attr {number|string} right - 距离页面右侧的距离，默认单位为 px，默认 30
+ * @attr {number|string} bottom - 距离页面底部的距离，默认单位为 px，默认 40
+ * @attr {number} offset - 滚动高度达到此参数值时才显示组件，默认 200
+ * @attr {string|Element} teleport - 指定挂载的节点，默认 body
+ * @attr {boolean} immediate - 是否瞬间滚动到顶部，默认 false
+ * @attr {number|string} z-index - 设置组件的 z-index 层级，默认 100
+ * @slot default - 自定义按钮显示内容
+ * @event click - 点击组件时触发，参数：event: MouseEvent
+ */
 export const backTopProps = {
   right: numericProp,
   bottom: numericProp,

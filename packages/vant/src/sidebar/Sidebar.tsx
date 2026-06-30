@@ -11,6 +11,12 @@ export type SidebarProvide = {
 
 export const SIDEBAR_KEY: InjectionKey<SidebarProvide> = Symbol(name);
 
+/**
+ * @summary Sidebar 侧边导航 - 垂直展示的导航栏，用于在不同的内容区域之间进行切换
+ * @attr {number|string} v-model - 当前导航项的索引，默认 0
+ * @slot default - 默认插槽，用于放置 SidebarItem
+ * @event change - 切换导航项时触发，参数：index: number
+ */
 export const sidebarProps = {
   modelValue: makeNumericProp(0),
 };

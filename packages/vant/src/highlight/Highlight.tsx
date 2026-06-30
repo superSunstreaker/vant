@@ -14,6 +14,18 @@ import {
 
 const [name, bem] = createNamespace('highlight');
 
+/**
+ * @summary Highlight 高亮文本 - 高亮指定文本内容
+ * @attr {boolean} auto-escape - 是否自动转义，默认 true
+ * @attr {boolean} case-sensitive - 是否区分大小写，默认 false
+ * @attr {string} highlight-class - 高亮元素的类名
+ * @attr {string} highlight-tag - 高亮元素对应的 HTML 标签名，默认 span
+ * @attr {string|string[]} keywords - 期望高亮的文本
+ * @attr {string} source-string - 源文本
+ * @attr {string} tag - 根节点对应的 HTML 标签名，默认 div
+ * @attr {string} unhighlight-class - 非高亮元素的类名
+ * @attr {string} unhighlight-tag - 非高亮元素对应的 HTML 标签名，默认 span
+ */
 export const highlightProps = {
   autoEscape: truthProp,
   caseSensitive: Boolean,

@@ -30,6 +30,15 @@ export type RowJustify =
   | 'space-around'
   | 'space-between';
 
+/**
+ * @summary Row 行 - 用于栅格布局中的行，需配合 Col 组件使用
+ * @attr {number|string|Array} gutter - 列元素之间的间距（单位为 px），可传入数组形式设置 [水平间距, 垂直间距]，默认 0
+ * @attr {string} tag - 自定义元素标签，默认 div
+ * @attr {RowJustify} justify - 主轴对齐方式，可选值为 end / center / space-around / space-between，默认 start
+ * @attr {RowAlign} align - 交叉轴对齐方式，可选值为 center / bottom，默认 top
+ * @attr {boolean} wrap - 是否自动换行，默认 true
+ * @slot default - 默认插槽，用于放置 Col
+ */
 export const rowProps = {
   tag: makeStringProp<keyof HTMLElementTagNameMap>('div'),
   wrap: truthProp,

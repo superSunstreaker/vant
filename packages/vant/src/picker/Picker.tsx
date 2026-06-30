@@ -56,6 +56,31 @@ import type {
 } from './types';
 import { PICKER_GROUP_KEY } from '../picker-group/PickerGroup';
 
+/**
+ * @summary Picker 选择器 - 提供多个选项集合供用户选择，支持单列选择、多列选择和级联选择，通常与弹出层组件配合使用
+ * @attr {Array} v-model - 当前选中项对应的 value，默认 []
+ * @attr {Array} columns - 对象数组，配置每一列显示的数据，默认 []
+ * @attr {PickerFieldNames} columns-field-names - 自定义 columns 结构中的字段
+ * @attr {string} title - 顶部栏标题
+ * @attr {string} confirm-button-text - 确认按钮文字，默认 确认
+ * @attr {string} cancel-button-text - 取消按钮文字，默认 取消
+ * @attr {PickerToolbarPosition} toolbar-position - 顶部栏位置，可选值为 bottom，默认 top
+ * @attr {boolean} loading - 是否显示加载状态，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下无法切换选项，默认 false
+ * @attr {number|string} option-height - 选项高度，支持 px vw vh rem 单位，默认 44
+ * @attr {number|string} visible-option-num - 可见的选项个数，默认 6
+ * @attr {number|string} swipe-duration - 快速滑动时惯性滚动的时长，单位 ms，默认 1000
+ * @slot toolbar - 自定义整个顶部栏的内容
+ * @slot title - 自定义标题内容
+ * @slot confirm - 自定义确认按钮内容
+ * @slot cancel - 自定义取消按钮内容
+ * @slot option - 自定义选项内容
+ * @slot columns-top - 自定义选项上方内容
+ * @slot columns-bottom - 自定义选项下方内容
+ * @event confirm - 点击完成按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event cancel - 点击取消按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event change - 选项改变时触发，参数：{ selectedValues, selectedOptions, selectedIndexes, columnIndex }
+ */
 export const pickerSharedProps = extend(
   {
     loading: Boolean,

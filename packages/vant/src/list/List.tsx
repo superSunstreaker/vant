@@ -32,6 +32,25 @@ import type { ListExpose, ListDirection } from './types';
 
 const [name, bem, t] = createNamespace('list');
 
+/**
+ * @summary List 列表 - 瀑布流滚动加载，用于展示长列表，当列表即将滚动到底部时，会触发事件并加载更多列表项
+ * @attr {boolean} v-model:loading - 是否处于加载状态，加载过程中不触发 load 事件，默认 false
+ * @attr {boolean} v-model:error - 是否加载失败，加载失败后点击错误提示可以重新触发 load 事件，默认 false
+ * @attr {boolean} finished - 是否已加载完成，加载完成后不再触发 load 事件，默认 false
+ * @attr {number|string} offset - 滚动条与底部距离小于 offset 时触发 load 事件，默认 300
+ * @attr {string} loading-text - 加载过程中的提示文案
+ * @attr {string} finished-text - 加载完成后的提示文案
+ * @attr {string} error-text - 加载失败后的提示文案
+ * @attr {boolean} immediate-check - 是否在初始化时立即执行滚动位置检查，默认 true
+ * @attr {boolean} disabled - 是否禁用滚动加载，默认 false
+ * @attr {ListDirection} direction - 滚动触发加载的方向，可选值为 up，默认 down
+ * @attr {Element} scroller - 指定需要监听滚动事件的节点，默认为最近的父级滚动节点
+ * @slot default - 列表内容
+ * @slot loading - 自定义底部加载中提示
+ * @slot finished - 自定义加载完成后的提示文案
+ * @slot error - 自定义加载失败后的提示文案
+ * @event load - 滚动条与底部距离小于 offset 时触发
+ */
 export const listProps = {
   error: Boolean,
   offset: makeNumericProp(300),

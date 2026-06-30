@@ -42,6 +42,18 @@ import {
   FloatingBubbleBoundary,
 } from './types';
 
+/**
+ * @summary FloatingBubble 浮动气泡 - 悬浮在页面边缘的可点击气泡
+ * @attr {FloatingBubbleOffset} v-model:offset - 控制气泡位置，默认右下角坐标
+ * @attr {FloatingBubbleAxis} axis - 拖拽的方向，xy 代表自由拖拽，lock 代表禁止拖拽，默认 y
+ * @attr {FloatingBubbleMagnetic} magnetic - 自动磁吸的方向，可选值为 x / y
+ * @attr {string} icon - 气泡图标名称或图片链接
+ * @attr {number|object} gap - 气泡与窗口的最小间距，单位为 px，默认 24
+ * @attr {string|Element} teleport - 指定挂载的节点，默认 body
+ * @slot default - 自定义气泡显示内容
+ * @event click - 点击组件时触发，参数：MouseEvent
+ * @event offset-change - 由用户拖拽导致位置改变后触发，参数：{ x: number, y: number }
+ */
 export const floatingBubbleProps = {
   gap: {
     type: [Number, Object] as PropType<FloatingBubbleGap>,

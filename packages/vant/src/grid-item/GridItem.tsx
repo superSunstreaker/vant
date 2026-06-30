@@ -26,6 +26,19 @@ import { Badge, type BadgeProps } from '../badge';
 
 const [name, bem] = createNamespace('grid-item');
 
+/**
+ * @summary GridItem 宫格项 - 用于放置在 Grid 中的单个宫格
+ * @attr {string} text - 文字
+ * @attr {string} icon - 图标名称或图片链接
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @attr {string} icon-color - 图标颜色
+ * @attr {boolean} dot - 是否显示图标右上角小红点，默认 false
+ * @attr {number|string} badge - 图标右上角徽标的内容
+ * @attr {BadgeProps} badge-props - 自定义徽标的属性，传入的对象会被透传给 Badge 组件的 props
+ * @slot default - 自定义宫格的所有内容
+ * @slot icon - 自定义图标
+ * @slot text - 自定义文字
+ */
 export const gridItemProps = extend({}, routeProps, {
   dot: Boolean,
   text: String,

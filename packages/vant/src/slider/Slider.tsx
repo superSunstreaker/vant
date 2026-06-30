@@ -31,6 +31,28 @@ type NumberRange = [number, number];
 
 type SliderValue = number | NumberRange;
 
+/**
+ * @summary Slider 滑块 - 滑动输入条，用于在给定的范围内选择一个值
+ * @attr {number|Array} v-model - 当前进度百分比，在双滑块模式下为数组格式，默认 0
+ * @attr {number|string} max - 最大值，默认 100
+ * @attr {number|string} min - 最小值，默认 0
+ * @attr {number|string} step - 步长，默认 1
+ * @attr {number|string} bar-height - 进度条高度，默认单位为 px，默认 2px
+ * @attr {number|string} button-size - 滑块按钮大小，默认单位为 px，默认 24px
+ * @attr {string} active-color - 进度条激活态颜色，默认 #1989fa
+ * @attr {string} inactive-color - 进度条非激活态颜色，默认 #e5e5e5
+ * @attr {boolean} range - 是否开启双滑块模式，默认 false
+ * @attr {boolean} reverse - 是否将进度条反转，默认 false
+ * @attr {boolean} disabled - 是否禁用滑块，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下无法修改滑块的值，默认 false
+ * @attr {boolean} vertical - 是否垂直展示，默认 false
+ * @slot button - 自定义滑块按钮
+ * @slot left-button - 自定义左侧滑块按钮（双滑块模式下）
+ * @slot right-button - 自定义右侧滑块按钮（双滑块模式下）
+ * @event change - 进度变化且结束拖动后触发，参数：value: number
+ * @event drag-start - 开始拖动时触发，参数：event: TouchEvent
+ * @event drag-end - 结束拖动时触发，参数：event: TouchEvent
+ */
 export const sliderProps = {
   min: makeNumericProp(0),
   max: makeNumericProp(100),

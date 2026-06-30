@@ -42,6 +42,29 @@ const popupInheritProps = [
   'zIndex',
 ] as const;
 
+/**
+ * @summary Toast 轻提示 - 在页面中间弹出黑色半透明提示，用于消息通知、加载提示、操作结果提示等场景
+ * @attr {ToastType} type - 提示类型，可选值为 loading / success / fail / html，默认 text
+ * @attr {ToastPosition} position - 位置，可选值为 top / bottom，默认 middle
+ * @attr {string} message - 文本内容，支持通过 \n 换行
+ * @attr {ToastWordBreak} word-break - 文本内容的换行方式，可选值为 normal / break-all / break-word，默认 break-all
+ * @attr {string} icon - 自定义图标，支持传入图标名称或图片链接
+ * @attr {number|string} icon-size - 图标大小，默认单位为 px，默认 36px
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @attr {boolean} overlay - 是否显示背景遮罩层，默认 false
+ * @attr {boolean} forbid-click - 是否禁止背景点击，默认 false
+ * @attr {boolean} close-on-click - 是否在点击后关闭，默认 false
+ * @attr {boolean} close-on-click-overlay - 是否在点击遮罩层后关闭，默认 false
+ * @attr {string} loading-type - 加载图标类型，可选值为 spinner，默认 circular
+ * @attr {number} duration - 展示时长(ms)，值为 0 时，toast 不会消失，默认 2000
+ * @attr {string|Array|object} class-name - 自定义类名
+ * @attr {string|Array|object} overlay-class - 自定义遮罩层类名
+ * @attr {object} overlay-style - 自定义遮罩层样式
+ * @attr {string} transition - 动画类名，默认 van-fade
+ * @attr {string|Element} teleport - 指定挂载的节点，默认 body
+ * @attr {number|string} z-index - 将组件的 z-index 层级设置为一个固定值
+ * @slot message - 自定义文本内容
+ */
 export const toastProps = {
   icon: String,
   show: Boolean,

@@ -15,6 +15,17 @@ const [name, bem] = createNamespace('radio-group');
 
 export type RadioGroupDirection = CheckerDirection;
 
+/**
+ * @summary RadioGroup 单选框组 - 用于将多个单选框组合在一起
+ * @attr {any} v-model - 当前选中项的标识符
+ * @attr {boolean} disabled - 是否禁用所有单选框，默认 false
+ * @attr {RadioGroupDirection} direction - 排列方向，可选值为 horizontal，默认 vertical
+ * @attr {number|string} icon-size - 所有单选框的图标大小，默认单位为 px，默认 20px
+ * @attr {string} checked-color - 所有单选框的选中状态颜色，默认 #1989fa
+ * @attr {RadioShape} shape - 形状，可选值为 square / dot，默认 round
+ * @slot default - 默认插槽，用于放置 Radio
+ * @event change - 当绑定值变化时触发的事件，参数：name: string
+ */
 export const radioGroupProps = {
   shape: String as PropType<RadioShape>,
   disabled: Boolean,

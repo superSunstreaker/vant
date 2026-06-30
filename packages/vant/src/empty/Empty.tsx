@@ -9,6 +9,15 @@ import {
 
 const [name, bem] = createNamespace('empty');
 
+/**
+ * @summary Empty 空状态 - 空状态时的占位提示
+ * @attr {string} image - 图片类型，可选值为 error / network / search，支持传入图片 URL，默认 default
+ * @attr {number|string|Array} image-size - 图片大小，默认单位为 px
+ * @attr {string} description - 图片下方的描述文字
+ * @slot default - 自定义底部内容
+ * @slot image - 自定义图标
+ * @slot description - 自定义描述文字
+ */
 export const emptyProps = {
   image: makeStringProp('default'),
   imageSize: [Number, String, Array] as PropType<Numeric | [Numeric, Numeric]>,

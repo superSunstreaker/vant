@@ -46,6 +46,22 @@ const iconMap: Record<string, string> = {
 
 const [name, bem, t] = createNamespace('share-sheet');
 
+/**
+ * @summary ShareSheet 分享面板 - 底部弹起的分享面板，用于展示各分享渠道对应的操作按钮，不含具体的分享逻辑
+ * @attr {boolean} v-model:show - 是否显示分享面板，默认 false
+ * @attr {ShareSheetOption[]} options - 分享选项，默认 []
+ * @attr {string} title - 顶部标题
+ * @attr {string} cancel-text - 取消按钮文字，传入空字符串可以隐藏按钮，默认 取消
+ * @attr {string} description - 标题下方的辅助描述文字
+ * @attr {boolean} round - 是否显示圆角，默认 true
+ * @attr {boolean} close-on-popstate - 是否在页面回退时自动关闭，默认 true
+ * @attr {boolean} safe-area-inset-bottom - 是否开启底部安全区适配，默认 true
+ * @slot title - 自定义顶部标题
+ * @slot description - 自定义描述文字
+ * @slot cancel - 自定义取消按钮内容
+ * @event select - 点击分享选项时触发，参数：option: ShareSheetOption, index: number
+ * @event cancel - 点击取消按钮时触发
+ */
 export const shareSheetProps = extend({}, popupSharedProps, {
   title: String,
   round: truthProp,

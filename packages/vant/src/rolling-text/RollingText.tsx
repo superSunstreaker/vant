@@ -32,6 +32,17 @@ import {
 
 const [name, bem] = createNamespace('rolling-text');
 
+/**
+ * @summary RollingText 翻滚文本 - 文本翻滚动效，可以翻滚数字和其他类型文本
+ * @attr {number} start-num - 起始数值，默认 0
+ * @attr {number} target-num - 目标数值
+ * @attr {string[]} text-list - 内容数组，用于翻转非数字内容，默认 []
+ * @attr {number} duration - 动画时长，单位为秒，默认 2
+ * @attr {RollingTextDirection} direction - 文本翻滚方向，值为 down 和 up，默认 down
+ * @attr {boolean} auto-start - 是否自动开始动画，默认 true
+ * @attr {RollingTextStopOrder} stop-order - 各个数位动画停止先后顺序，值为 ltr 和 rtl，默认 ltr
+ * @attr {number} height - 数字高度，单位为 px，默认 40
+ */
 export const rollingTextProps = {
   startNum: makeNumberProp(0),
   targetNum: Number,

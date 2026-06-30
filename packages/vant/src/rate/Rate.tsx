@@ -54,6 +54,25 @@ function getRateStatus(
   return { status: 'void', value: 0 };
 }
 
+/**
+ * @summary Rate 评分 - 用于对事物进行评级操作
+ * @attr {number} v-model - 当前分值
+ * @attr {number|string} count - 图标总数，默认 5
+ * @attr {number|string} size - 图标大小，默认单位为 px，默认 20px
+ * @attr {number|string} gutter - 图标间距，默认单位为 px，默认 4px
+ * @attr {string} color - 选中时的颜色，默认 #ee0a24
+ * @attr {string} void-color - 未选中时的颜色，默认 #c8c9cc
+ * @attr {string} disabled-color - 禁用时的颜色，默认 #c8c9cc
+ * @attr {string} icon - 选中时的图标名称或图片链接，默认 star
+ * @attr {string} void-icon - 未选中时的图标名称或图片链接，默认 star-o
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @attr {boolean} allow-half - 是否允许半选，默认 false
+ * @attr {boolean} clearable - 是否允许再次点击后清除，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下无法修改评分，默认 false
+ * @attr {boolean} disabled - 是否禁用评分，默认 false
+ * @attr {boolean} touchable - 是否可以通过滑动手势选择评分，默认 true
+ * @event change - 当前分值变化时触发的事件，参数：currentValue: number
+ */
 export const rateProps = {
   size: numericProp,
   icon: makeStringProp('star'),

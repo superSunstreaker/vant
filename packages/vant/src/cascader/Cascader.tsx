@@ -31,6 +31,27 @@ import type { CascaderTab, CascaderOption, CascaderFieldNames } from './types';
 
 const [name, bem, t] = createNamespace('cascader');
 
+/**
+ * @summary Cascader 级联选择 - 级联选择框，用于多层级数据的选择，典型场景为省市区选择
+ * @attr {string|number} v-model - 选中项的值
+ * @attr {string} title - 顶部标题
+ * @attr {CascaderOption[]} options - 可选项数据源，默认 []
+ * @attr {string} placeholder - 未选中时的提示文案，默认 请选择
+ * @attr {string} active-color - 选中状态的高亮颜色，默认 #1989fa
+ * @attr {boolean} swipeable - 是否开启手势左右滑动切换，默认 true
+ * @attr {boolean} closeable - 是否显示关闭图标，默认 true
+ * @attr {boolean} show-header - 是否展示标题栏，默认 true
+ * @attr {string} close-icon - 关闭图标名称或图片链接，默认 cross
+ * @attr {CascaderFieldNames} field-names - 自定义 options 结构中的字段
+ * @slot title - 自定义顶部标题
+ * @slot option - 自定义选项文字
+ * @slot options-top - 自定义选项上方的内容
+ * @slot options-bottom - 自定义选项下方的内容
+ * @event change - 选中项变化时触发，参数：{ value, selectedOptions, tabIndex }
+ * @event finish - 全部选项选择完成后触发，参数：{ value, selectedOptions, tabIndex }
+ * @event close - 点击关闭图标时触发
+ * @event click-tab - 点击标签时触发，参数：tabIndex, title
+ */
 export const cascaderProps = {
   title: String,
   options: makeArrayProp<CascaderOption>(),

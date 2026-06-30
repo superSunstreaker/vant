@@ -35,6 +35,27 @@ type PullRefreshStatus =
   | 'pulling'
   | 'success';
 
+/**
+ * @summary PullRefresh 下拉刷新 - 用于提供下拉刷新的交互操作
+ * @attr {boolean} v-model - 是否处于加载中状态
+ * @attr {string} pulling-text - 下拉过程提示文案，默认 下拉即可刷新...
+ * @attr {string} loosing-text - 释放过程提示文案，默认 释放即可刷新...
+ * @attr {string} loading-text - 加载过程提示文案，默认 加载中...
+ * @attr {string} success-text - 刷新成功提示文案
+ * @attr {number|string} success-duration - 刷新成功提示展示时长(ms)，默认 500
+ * @attr {number|string} animation-duration - 动画时长，默认 300
+ * @attr {number|string} head-height - 顶部内容高度，默认 50
+ * @attr {number|string} pull-distance - 触发下拉刷新的距离，默认与 head-height 一致
+ * @attr {boolean} disabled - 是否禁用下拉刷新，默认 false
+ * @slot default - 自定义内容
+ * @slot normal - 非下拉状态时顶部内容
+ * @slot pulling - 下拉过程中顶部内容
+ * @slot loosing - 释放过程中顶部内容
+ * @slot loading - 加载过程中顶部内容
+ * @slot success - 刷新成功提示内容
+ * @event refresh - 下拉刷新时触发
+ * @event change - 拖动时或状态改变时触发，参数：{ status: string, distance: number }
+ */
 export const pullRefreshProps = {
   disabled: Boolean,
   modelValue: Boolean,

@@ -21,6 +21,21 @@ import {
 
 const [name, bem] = createNamespace('watermark');
 
+/**
+ * @summary Watermark 水印 - 在页面上添加特定的文字或图案作为水印，可用于防止信息盗用
+ * @attr {number} width - 水印宽度，默认 100
+ * @attr {number} height - 水印高度，默认 100
+ * @attr {number|string} z-index - 水印的 z-index，默认 100
+ * @attr {string} content - 文字水印的内容
+ * @attr {string} image - 图片水印的内容，如果与 content 同时传入，优先使用图片水印
+ * @attr {number|string} rotate - 水印的旋转角度，默认 -22
+ * @attr {boolean} full-page - 水印是否全屏显示，默认 false
+ * @attr {number} gap-x - 水印之间的水平间隔，默认 0
+ * @attr {number} gap-y - 水印之间的垂直间隔，默认 0
+ * @attr {string} text-color - 文字水印的颜色，默认 #dcdee0
+ * @attr {number|string} opacity - 水印的透明度
+ * @slot content - HTML 水印的内容，仅支持行内样式，优先级高于 content 或 image 属性
+ */
 export const watermarkProps = {
   gapX: makeNumberProp(0),
   gapY: makeNumberProp(0),

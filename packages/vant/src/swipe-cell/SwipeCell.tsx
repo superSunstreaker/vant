@@ -34,6 +34,22 @@ import type {
 
 const [name, bem] = createNamespace('swipe-cell');
 
+/**
+ * @summary SwipeCell 滑动单元格 - 可以左右滑动来展示操作按钮的单元格组件
+ * @attr {number|string} name - 标识符，通常为一个唯一的字符串或数字，可以在事件参数中获取到，默认 ''
+ * @attr {number|string} left-width - 指定左侧滑动区域宽度，单位为 px，默认 auto
+ * @attr {number|string} right-width - 指定右侧滑动区域宽度，单位为 px，默认 auto
+ * @attr {number|string} threshold - 滑动触发阈值（滑动距离与滑动区域宽度的比例），默认 0.15
+ * @attr {Function} before-close - 关闭前的回调函数，返回 false 可阻止关闭，支持返回 Promise
+ * @attr {boolean} disabled - 是否禁用滑动，默认 false
+ * @attr {boolean} stop-propagation - 是否阻止滑动事件冒泡，默认 false
+ * @slot default - 默认显示的内容
+ * @slot left - 左侧滑动区域的内容
+ * @slot right - 右侧滑动区域的内容
+ * @event click - 点击时触发，参数：position: 'left' | 'right' | 'cell' | 'outside'
+ * @event open - 打开时触发，参数：{ name: string|number, position: 'left' | 'right' }
+ * @event close - 关闭时触发，参数：{ name: string|number, position: 'left' | 'right' | 'cell' | 'outside' }
+ */
 export const swipeCellProps = {
   name: makeNumericProp(''),
   disabled: Boolean,

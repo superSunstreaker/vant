@@ -30,6 +30,25 @@ export type ActionSheetAction = {
   className?: unknown;
 };
 
+/**
+ * @summary ActionSheet 动作面板 - 底部弹起的模态面板，包含与当前情境相关的多个选项
+ * @attr {string} title - 顶部标题
+ * @attr {boolean} round - 是否显示圆角，默认 true
+ * @attr {ActionSheetAction[]} actions - 面板选项列表，默认 []
+ * @attr {string} close-icon - 关闭图标名称或图片链接，默认 cross
+ * @attr {boolean} closeable - 是否显示关闭图标，默认 true
+ * @attr {string} cancel-text - 取消按钮文字
+ * @attr {string} description - 选项上方的描述信息
+ * @attr {boolean} close-on-popstate - 是否在页面回退时自动关闭，默认 true
+ * @attr {boolean} close-on-click-action - 是否在点击选项后关闭，默认 false
+ * @attr {boolean} safe-area-inset-bottom - 是否开启底部安全区适配，默认 true
+ * @slot default - 自定义面板的展示内容
+ * @slot description - 自定义描述文案
+ * @slot cancel - 自定义取消按钮内容
+ * @slot action - 自定义选项内容
+ * @event select - 点击选项时触发，禁用或加载状态下不会触发，参数：action: ActionSheetAction, index: number
+ * @event cancel - 点击取消按钮时触发
+ */
 export const actionSheetProps = extend({}, popupSharedProps, {
   title: String,
   round: truthProp,

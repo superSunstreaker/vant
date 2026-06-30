@@ -6,6 +6,19 @@ const [name, bem] = createNamespace('steps');
 
 export type StepsDirection = 'horizontal' | 'vertical';
 
+/**
+ * @summary Steps 步骤条 - 用于展示操作流程的各个环节，让用户了解当前的操作在整体流程中的位置
+ * @attr {number|string} active - 当前步骤对应的索引值，默认 0
+ * @attr {StepsDirection} direction - 步骤条方向，可选值为 vertical，默认 horizontal
+ * @attr {string} active-icon - 当前步骤对应的底部图标，默认 checked
+ * @attr {string} inactive-icon - 非当前步骤对应的底部图标
+ * @attr {string} finish-icon - 已完成步骤对应的底部图标，优先级高于 inactive-icon
+ * @attr {string} active-color - 当前步骤和已完成步骤的颜色，默认 #1989fa
+ * @attr {string} inactive-color - 未激活步骤的颜色，默认 #969799
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @slot default - 默认插槽，用于放置 Step
+ * @event click-step - 点击步骤的标题或图标时触发，参数：index: number
+ */
 export const stepsProps = {
   active: makeNumericProp(0),
   direction: makeStringProp<StepsDirection>('horizontal'),

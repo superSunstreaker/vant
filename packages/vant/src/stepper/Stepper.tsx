@@ -40,6 +40,38 @@ const isEqual = (value1?: Numeric, value2?: Numeric) =>
 
 export type StepperTheme = 'default' | 'round';
 
+/**
+ * @summary Stepper 步进器 - 步进器由增加按钮、减少按钮和输入框组成，用于在一定范围内输入、调整数字
+ * @attr {number|string} v-model - 当前输入的值
+ * @attr {number|string} min - 最小值，默认 1
+ * @attr {number|string} max - 最大值
+ * @attr {boolean} auto-fixed - 是否自动校正超出限制范围的数值，默认 true
+ * @attr {number|string} default-value - 初始值，当 v-model 为空时生效，默认 1
+ * @attr {number|string} step - 步长，每次点击时改变的值，默认 1
+ * @attr {number|string} name - 标识符，通常为一个唯一的字符串或数字，可以在 change 事件回调参数中获取
+ * @attr {number|string} input-width - 输入框宽度，默认单位为 px，默认 32px
+ * @attr {number|string} button-size - 按钮大小以及输入框高度，默认单位为 px，默认 28px
+ * @attr {number|string} decimal-length - 固定显示的小数位数
+ * @attr {StepperTheme} theme - 样式风格，可选值为 round
+ * @attr {string} placeholder - 输入框占位提示文字
+ * @attr {boolean} integer - 是否只允许输入整数，默认 false
+ * @attr {boolean} disabled - 是否禁用步进器，默认 false
+ * @attr {boolean} disable-plus - 是否禁用增加按钮，默认 false
+ * @attr {boolean} disable-minus - 是否禁用减少按钮，默认 false
+ * @attr {boolean} disable-input - 是否禁用输入框，默认 false
+ * @attr {Function} before-change - 输入值变化前的回调函数，返回 false 可阻止输入，支持返回 Promise
+ * @attr {boolean} show-plus - 是否显示增加按钮，默认 true
+ * @attr {boolean} show-minus - 是否显示减少按钮，默认 true
+ * @attr {boolean} show-input - 是否显示输入框，默认 true
+ * @attr {boolean} long-press - 是否开启长按手势，开启后可以长按增加和减少按钮，默认 true
+ * @attr {boolean} allow-empty - 是否允许输入的值为空，设置为 true 后允许传入空字符串，默认 false
+ * @event change - 当绑定值变化时触发的事件，参数：value: string, detail: { name: string }
+ * @event overlimit - 点击不可用的按钮时触发
+ * @event plus - 点击增加按钮时触发
+ * @event minus - 点击减少按钮时触发
+ * @event focus - 输入框聚焦时触发，参数：event: Event
+ * @event blur - 输入框失焦时触发，参数：event: Event
+ */
 export const stepperProps = {
   min: makeNumericProp(1),
   max: makeNumericProp(Infinity),

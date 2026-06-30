@@ -53,6 +53,35 @@ const DEFAULT_DATA: AddressEditInfo = {
   addressDetail: '',
 };
 
+/**
+ * @summary AddressEdit 地址编辑 - 地址编辑组件，用于新建、更新、删除地址信息
+ * @attr {object} area-list - 地区列表
+ * @attr {string[]} area-columns-placeholder - 地区选择列占位提示文字，默认 []
+ * @attr {string} area-placeholder - 地区输入框占位提示文字，默认 选择省 / 市 / 区
+ * @attr {AddressEditInfo} address-info - 地址信息初始值，默认 {}
+ * @attr {AddressEditSearchItem[]} search-result - 详细地址搜索结果，默认 []
+ * @attr {boolean} show-delete - 是否显示删除按钮，默认 false
+ * @attr {boolean} show-set-default - 是否显示默认地址栏，默认 false
+ * @attr {boolean} show-search-result - 是否显示搜索结果，默认 false
+ * @attr {boolean} show-area - 是否显示地区，默认 true
+ * @attr {boolean} show-detail - 是否显示详细地址，默认 true
+ * @attr {boolean} disable-area - 是否禁用地区选择，默认 false
+ * @attr {string} save-button-text - 保存按钮文字，默认 保存
+ * @attr {string} delete-button-text - 删除按钮文字，默认 删除
+ * @attr {number|string} detail-rows - 详细地址输入框行数，默认 1
+ * @attr {number|string} detail-maxlength - 详细地址最大长度，默认 200
+ * @attr {boolean} is-saving - 是否显示保存按钮加载动画，默认 false
+ * @attr {boolean} is-deleting - 是否显示删除按钮加载动画，默认 false
+ * @attr {Function} tel-validator - 手机号格式校验函数
+ * @attr {number|string} tel-maxlength - 手机号最大长度
+ * @attr {Function} validator - 自定义校验函数
+ * @slot default - 在邮政编码下方插入内容
+ * @event save - 点击保存按钮时触发，参数：info: AddressEditInfo
+ * @event delete - 确认删除地址时触发，参数：info: AddressEditInfo
+ * @event change-area - 修改收件地区时触发，参数：selectedOptions: PickerOption[]
+ * @event change-detail - 修改详细地址时触发，参数：value: string
+ * @event change-default - 切换是否使用默认地址时触发，参数：checked: boolean
+ */
 export const addressEditProps = {
   areaList: Object as PropType<AreaList>,
   isSaving: Boolean,

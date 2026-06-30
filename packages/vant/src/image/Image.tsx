@@ -33,6 +33,33 @@ const [name, bem] = createNamespace('image');
 // Types
 import type { ImageFit, ImagePosition } from './types';
 
+/**
+ * @summary Image 图片 - 增强版的 img 标签，提供多种图片填充模式，支持图片懒加载、加载中提示、加载失败提示
+ * @attr {string} src - 图片链接
+ * @attr {ImageFit} fit - 图片填充模式，等同于原生的 object-fit 属性，默认 fill
+ * @attr {ImagePosition} position - 图片位置，等同于原生的 object-position 属性，默认 center
+ * @attr {string} alt - 替代文本
+ * @attr {number|string} width - 宽度，默认单位为 px
+ * @attr {number|string} height - 高度，默认单位为 px
+ * @attr {number|string} radius - 圆角大小，默认单位为 px，默认 0
+ * @attr {boolean} round - 是否显示为圆形，默认 false
+ * @attr {boolean} block - 是否将根节点设置为块级元素，默认 false
+ * @attr {boolean} lazy-load - 是否开启图片懒加载，须配合 Lazyload 组件使用，默认 false
+ * @attr {boolean} show-error - 是否展示图片加载失败提示，默认 true
+ * @attr {boolean} show-loading - 是否展示图片加载中提示，默认 true
+ * @attr {string} error-icon - 失败时提示的图标名称或图片链接，默认 photo-fail
+ * @attr {string} loading-icon - 加载时提示的图标名称或图片链接，默认 photo
+ * @attr {number|string} icon-size - 加载图标和失败图标的大小，默认 32px
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @attr {string} crossorigin - 等同于原生的 crossorigin 属性
+ * @attr {string} referrerpolicy - 等同于原生的 referrerpolicy 属性
+ * @attr {string} decoding - 等同于原生的 decoding 属性
+ * @slot default - 自定义图片下方的内容
+ * @slot loading - 自定义加载中的提示内容
+ * @slot error - 自定义加载失败时的提示内容
+ * @event load - 图片加载完毕时触发，参数：event: Event
+ * @event error - 图片加载失败时触发
+ */
 export const imageProps = {
   src: String,
   alt: String,

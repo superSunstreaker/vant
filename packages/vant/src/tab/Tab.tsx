@@ -38,6 +38,19 @@ import { SwipeItem } from '../swipe-item';
 
 const [name, bem] = createNamespace('tab');
 
+/**
+ * @summary Tab 标签页 - 用于放置在 Tabs 中的单个标签页
+ * @attr {string} title - 标题
+ * @attr {number|string} name - 标签名称，作为匹配的标识符
+ * @attr {boolean} disabled - 是否禁用该项，默认 false
+ * @attr {boolean} dot - 是否在标题右上角显示小红点，默认 false
+ * @attr {number|string} badge - 图标右上角徽标的内容
+ * @attr {boolean} show-zero-badge - 当 badge 为数字 0 或字符串 '0' 时，是否展示徽标，默认 true
+ * @attr {string|object} title-class - 标题额外类名
+ * @attr {string|object} title-style - 标题额外样式
+ * @slot default - 标签页内容
+ * @slot title - 自定义标题内容
+ */
 export const tabProps = extend({}, routeProps, {
   dot: Boolean,
   name: numericProp,

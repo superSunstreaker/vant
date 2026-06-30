@@ -32,6 +32,32 @@ import { Coupon, CouponInfo } from '../coupon';
 import { useRect } from '@vant/use';
 
 const [name, bem, t] = createNamespace('coupon-list');
+/**
+ * @summary CouponList 优惠券列表 - 用于优惠券的兑换和选择
+ * @attr {string} v-model:code - 当前输入的兑换码
+ * @attr {number|number[]} chosen-coupon - 当前选中优惠券的索引，支持多选（类型为 []），默认 -1
+ * @attr {CouponInfo[]} coupons - 可用优惠券列表，默认 []
+ * @attr {CouponInfo[]} disabled-coupons - 不可用优惠券列表，默认 []
+ * @attr {string} enabled-title - 可用优惠券列表标题
+ * @attr {string} disabled-title - 不可用优惠券列表标题
+ * @attr {string} exchange-button-text - 兑换按钮文字，默认 兑换
+ * @attr {boolean} exchange-button-loading - 是否显示兑换按钮加载动画，默认 false
+ * @attr {boolean} exchange-button-disabled - 是否禁用兑换按钮，默认 false
+ * @attr {number} exchange-min-length - 兑换码最小长度，默认 1
+ * @attr {number} displayed-coupon-index - 滚动至特定优惠券位置，默认 -1
+ * @attr {boolean} show-close-button - 是否显示列表底部按钮，默认 true
+ * @attr {string} close-button-text - 列表底部按钮文字
+ * @attr {string} input-placeholder - 输入框文字提示
+ * @attr {boolean} show-exchange-bar - 是否展示兑换栏，默认 true
+ * @attr {string} currency - 货币符号，默认 ¥
+ * @attr {string} empty-image - 列表为空时的占位图
+ * @attr {boolean} show-count - 是否展示可用 / 不可用数量，默认 true
+ * @slot list-footer - 优惠券列表底部
+ * @slot disabled-list-footer - 不可用优惠券列表底部
+ * @slot list-button - 自定义底部按钮
+ * @event change - 优惠券切换回调，参数：index: 选中优惠券的索引
+ * @event exchange - 兑换优惠券回调，参数：code: 兑换码
+ */
 export const couponListProps = {
   code: makeStringProp(''),
   coupons: makeArrayProp<CouponInfo>(),

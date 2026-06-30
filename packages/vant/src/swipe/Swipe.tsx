@@ -43,6 +43,26 @@ import { SwipeState, SwipeExpose, SwipeProvide, SwipeToOptions } from './types';
 
 const [name, bem] = createNamespace('swipe');
 
+/**
+ * @summary Swipe 轮播 - 用于循环播放一组图片或内容
+ * @attr {number|string} autoplay - 自动轮播间隔，单位为 ms，默认 0
+ * @attr {number|string} duration - 动画时长，单位为 ms，默认 500
+ * @attr {number|string} initial-swipe - 初始位置索引值，默认 0
+ * @attr {number|string} width - 滑块宽度，单位为 px，默认 auto
+ * @attr {number|string} height - 滑块高度，单位为 px，默认 auto
+ * @attr {boolean} loop - 是否开启循环播放，默认 true
+ * @attr {boolean} show-indicators - 是否显示指示器，默认 true
+ * @attr {boolean} vertical - 是否为纵向滚动，默认 false
+ * @attr {boolean} touchable - 是否可以通过手势滑动，默认 true
+ * @attr {boolean} stop-propagation - 是否阻止滑动事件冒泡，默认 true
+ * @attr {boolean} lazy-render - 是否延迟渲染未展示的轮播，默认 false
+ * @attr {string} indicator-color - 指示器颜色，默认 #1989fa
+ * @slot default - 轮播内容
+ * @slot indicator - 自定义指示器
+ * @event change - 每一页轮播结束后触发，参数：index: number
+ * @event drag-start - 当用户开始拖动轮播组件时触发，参数：{ index: number }
+ * @event drag-end - 当用户结束拖动轮播组件时触发，参数：{ index: number }
+ */
 export const swipeProps = {
   loop: truthProp,
   width: numericProp,

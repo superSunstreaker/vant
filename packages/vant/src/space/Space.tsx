@@ -16,6 +16,15 @@ const [name, bem] = createNamespace('space');
 export type SpaceSize = number | string;
 export type SpaceAlign = 'start' | 'end' | 'center' | 'baseline';
 
+/**
+ * @summary Space 间距 - 设置元素之间的间距
+ * @attr {string} direction - 间距方向，可选值为 vertical / horizontal，默认 horizontal
+ * @attr {number|string|Array} size - 间距大小，如 20px 2em，默认单位为 px，支持数组形式来分别设置横向和纵向间距，默认 8px
+ * @attr {SpaceAlign} align - 设置子元素的对齐方式，可选值为 start / end / center / baseline
+ * @attr {boolean} wrap - 是否自动换行，仅适用于水平方向排列，默认 false
+ * @attr {boolean} fill - 是否让 Space 变为一个块级元素，填充整个父元素，默认 false
+ * @slot default - 间距组件内容
+ */
 export const spaceProps = {
   align: String as PropType<SpaceAlign>,
   direction: {

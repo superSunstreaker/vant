@@ -34,6 +34,22 @@ function getPath(clockwise: boolean, viewBoxSize: number) {
 
 export type CircleStartPosition = 'top' | 'right' | 'bottom' | 'left';
 
+/**
+ * @summary Circle 环形进度条 - 圆环形的进度条组件，支持进度渐变动画
+ * @attr {number} v-model:current-rate - 当前进度
+ * @attr {number|string} rate - 目标进度，默认 100
+ * @attr {number|string} size - 圆环直径，默认单位为 px，默认 100px
+ * @attr {string|object} color - 进度条颜色，传入对象格式可以定义渐变色，默认 #1989fa
+ * @attr {string} layer-color - 轨道颜色，默认 white
+ * @attr {string} fill - 填充颜色，默认 none
+ * @attr {number|string} speed - 动画速度（单位为 rate/s），默认 0
+ * @attr {string} text - 文字
+ * @attr {number|string} stroke-width - 进度条宽度，默认 40
+ * @attr {string} stroke-linecap - 进度条端点的形状，可选值为 square / butt，默认 round
+ * @attr {boolean} clockwise - 是否顺时针增加，默认 true
+ * @attr {CircleStartPosition} start-position - 进度起始位置，可选值为 left / right / bottom，默认 top
+ * @slot default - 自定义文字内容
+ */
 export const circleProps = {
   text: String,
   size: numericProp,

@@ -42,6 +42,33 @@ import type {
 
 const [name, bem, t] = createNamespace('dialog');
 
+/**
+ * @summary Dialog 弹出框 - 弹出模态框，常用于消息提示、消息确认，或在当前页面内完成特定的交互操作
+ * @attr {string} title - 标题
+ * @attr {DialogTheme} theme - 样式风格，可选值为 round-button，默认 default
+ * @attr {number|string} width - 弹窗宽度，默认单位为 px，默认 320px
+ * @attr {string|Function} message - 文本内容，支持通过 \n 换行
+ * @attr {boolean} allow-html - 是否允许 message 内容中渲染 HTML，默认 false
+ * @attr {string} message-align - 内容水平对齐方式，可选值为 left / right / justify，默认 center
+ * @attr {boolean} show-confirm-button - 是否展示确认按钮，默认 true
+ * @attr {boolean} show-cancel-button - 是否展示取消按钮，默认 false
+ * @attr {string} confirm-button-text - 确认按钮文案，默认 确认
+ * @attr {string} confirm-button-color - 确认按钮颜色，默认 #ee0a24
+ * @attr {boolean} confirm-button-disabled - 是否禁用确认按钮，默认 false
+ * @attr {string} cancel-button-text - 取消按钮文案，默认 取消
+ * @attr {string} cancel-button-color - 取消按钮颜色，默认 black
+ * @attr {boolean} cancel-button-disabled - 是否禁用取消按钮，默认 false
+ * @attr {boolean} close-on-popstate - 是否在页面回退时自动关闭，默认 true
+ * @attr {boolean} close-on-click-overlay - 是否在点击遮罩层后关闭弹窗，默认 false
+ * @attr {boolean} keyboard-enabled - 是否启用键盘能力，默认 true
+ * @attr {boolean} destroy-on-close - 是否在关闭时销毁内容，默认 false
+ * @attr {Function} callback - 点击按钮时的回调函数
+ * @slot default - 自定义内容
+ * @slot title - 自定义标题
+ * @slot footer - 自定义底部按钮区域
+ * @event confirm - 点击确认按钮时触发
+ * @event cancel - 点击取消按钮时触发
+ */
 export const dialogProps = extend({}, popupSharedProps, {
   title: String,
   theme: String as PropType<DialogTheme>,

@@ -29,6 +29,24 @@ import type { SignatureExpose } from './types';
 
 const [name, bem, t] = createNamespace('signature');
 
+/**
+ * @summary Signature 签名 - 用于签名场景的组件，基于 Canvas 实现
+ * @attr {string} type - 导出图片类型，默认 png
+ * @attr {string} pen-color - 笔触颜色，默认 #000
+ * @attr {number} line-width - 线条宽度，默认 3
+ * @attr {number} history-size - 撤销历史记录最大数量，默认 20
+ * @attr {string} background-color - 背景颜色
+ * @attr {string} tips - 当不支持 Canvas 的时候出现的提示文案
+ * @attr {string} clear-button-text - 清除按钮文案，默认 清空
+ * @attr {string} undo-button-text - 撤销按钮文案，默认 撤销
+ * @attr {string} confirm-button-text - 确认按钮文案，默认 确认
+ * @slot tips - 自定义提示文案
+ * @event start - 开始签名时触发
+ * @event end - 结束签名时触发
+ * @event signing - 签名过程中触发，参数：event: TouchEvent
+ * @event submit - 点击确定按钮时触发，参数：data: { image: string, canvas: HTMLCanvasElement }
+ * @event clear - 点击取消按钮时触发
+ */
 export const signatureProps = {
   tips: String,
   type: makeStringProp('png'),

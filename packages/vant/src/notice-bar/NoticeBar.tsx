@@ -29,6 +29,23 @@ import { NoticeBarMode } from './types';
 
 const [name, bem] = createNamespace('notice-bar');
 
+/**
+ * @summary NoticeBar 通知栏 - 用于循环播放展示一组消息通知
+ * @attr {NoticeBarMode} mode - 通知栏模式，可选值为 closeable / link
+ * @attr {string} text - 通知文本内容
+ * @attr {string} color - 通知文本颜色，默认 #ed6a0c
+ * @attr {string} background - 滚动条背景，默认 #fffbe8
+ * @attr {string} left-icon - 左侧图标名称或图片链接
+ * @attr {number|string} delay - 动画延迟时间 (s)，默认 1
+ * @attr {number|string} speed - 滚动速率 (px/s)，默认 60
+ * @attr {boolean} scrollable - 是否开启滚动播放，内容长度溢出时默认开启
+ * @attr {boolean} wrapable - 是否开启文本换行，只在禁用滚动时生效，默认 false
+ * @slot default - 通知文本内容
+ * @slot left-icon - 自定义左侧图标
+ * @slot right-icon - 自定义右侧图标
+ * @event close - 关闭通知栏时触发，参数：event: MouseEvent
+ * @event replay - 每当滚动栏重新开始滚动时触发
+ */
 export const noticeBarProps = {
   text: String,
   mode: String as PropType<NoticeBarMode>,

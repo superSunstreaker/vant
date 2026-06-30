@@ -17,6 +17,16 @@ import { Button, ButtonType } from '../button';
 
 const [name, bem] = createNamespace('action-bar-button');
 
+/**
+ * @summary ActionBarButton 动作栏按钮 - 用于在 ActionBar 中放置按钮
+ * @attr {string} text - 按钮文字
+ * @attr {string} type - 按钮类型，可选值为 primary / success / warning / danger，默认 default
+ * @attr {string} color - 按钮颜色，支持传入 linear-gradient 渐变色
+ * @attr {string} icon - 左侧图标名称或图片链接
+ * @attr {boolean} disabled - 是否禁用按钮，默认 false
+ * @attr {boolean} loading - 是否显示为加载状态，默认 false
+ * @slot default - 按钮显示内容
+ */
 export const actionBarButtonProps = extend({}, routeProps, {
   type: String as PropType<ButtonType>,
   text: String,

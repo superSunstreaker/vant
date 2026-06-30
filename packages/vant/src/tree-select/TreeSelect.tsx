@@ -32,6 +32,19 @@ export type TreeSelectItem = {
   className?: unknown;
 };
 
+/**
+ * @summary TreeSelect 分类选择 - 用于从一组相关联的数据集合中进行选择
+ * @attr {number|string} v-model:main-active-index - 左侧选中项的索引，默认 0
+ * @attr {number|string|Array} v-model:active-id - 右侧选中项的 id，支持传入数组，默认 0
+ * @attr {TreeSelectItem[]} items - 分类显示所需的数据，默认 []
+ * @attr {number|string} height - 高度，默认单位为 px，默认 300
+ * @attr {number|string} max - 右侧项最大选中个数，默认 Infinity
+ * @attr {string} selected-icon - 自定义右侧栏选中状态的图标，默认 success
+ * @slot nav-text - 自定义导航名称
+ * @slot content - 自定义右侧区域内容
+ * @event click-nav - 点击左侧导航时触发，参数：index: number
+ * @event click-item - 点击右侧选择项时触发，参数：item: TreeSelectChild
+ */
 export const treeSelectProps = {
   max: makeNumericProp(Infinity),
   items: makeArrayProp<TreeSelectItem>(),

@@ -24,6 +24,18 @@ export type BadgePosition =
   | 'bottom-left'
   | 'bottom-right';
 
+/**
+ * @summary Badge 徽标 - 在右上角展示徽标数字或小红点
+ * @attr {number|string} content - 徽标内容（dot 为 false 时生效）
+ * @attr {string} color - 徽标背景颜色，默认 #ee0a24
+ * @attr {boolean} dot - 是否展示为小红点，默认 false
+ * @attr {number|string} max - 最大值，超过最大值会显示 {max}+，仅当 content 为数字时有效
+ * @attr {Array} offset - 设置徽标的偏移量，数组的两项分别对应水平向右和垂直向下方向的偏移量，默认单位为 px
+ * @attr {boolean} show-zero - 当 content 为数字 0 或字符串 '0' 时，是否展示徽标，默认 true
+ * @attr {string} position - 徽标位置，可选值为 top-left / bottom-left / bottom-right，默认 top-right
+ * @slot default - 徽标包裹的子元素
+ * @slot content - 自定义徽标内容
+ */
 export const badgeProps = {
   dot: Boolean,
   max: numericProp,

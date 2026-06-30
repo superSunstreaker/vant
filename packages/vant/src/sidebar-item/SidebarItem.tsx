@@ -13,6 +13,16 @@ import { Badge, type BadgeProps } from '../badge';
 
 const [name, bem] = createNamespace('sidebar-item');
 
+/**
+ * @summary SidebarItem 侧边导航项 - 用于放置在 Sidebar 中的单个导航项
+ * @attr {string} title - 内容
+ * @attr {boolean} dot - 是否显示右上角小红点，默认 false
+ * @attr {number|string} badge - 图标右上角徽标的内容
+ * @attr {BadgeProps} badge-props - 自定义徽标的属性，传入的对象会被透传给 Badge 组件的 props
+ * @attr {boolean} disabled - 是否禁用该项，默认 false
+ * @slot title - 自定义标题
+ * @event click - 点击时触发，参数：index: number
+ */
 export const sidebarItemProps = extend({}, routeProps, {
   dot: Boolean,
   title: String,

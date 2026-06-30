@@ -9,6 +9,19 @@ import {
 
 const [name, bem] = createNamespace('progress');
 
+/**
+ * @summary Progress 进度条 - 用于展示操作的当前进度
+ * @attr {number|string} percentage - 进度百分比，默认 0
+ * @attr {number|string} stroke-width - 进度条粗细，默认单位为 px，默认 4px
+ * @attr {string} color - 进度条颜色，默认 #1989fa
+ * @attr {string} track-color - 轨道颜色，默认 #e5e5e5
+ * @attr {string} pivot-text - 进度文字内容，默认百分比
+ * @attr {string} pivot-color - 进度文字背景色，默认同进度条颜色
+ * @attr {string} text-color - 进度文字颜色，默认 white
+ * @attr {boolean} inactive - 是否置灰，默认 false
+ * @attr {boolean} show-pivot - 是否显示进度文字，默认 true
+ * @slot pivot - 自定义进度文字
+ */
 export const progressProps = {
   color: String,
   inactive: Boolean,

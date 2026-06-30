@@ -37,6 +37,40 @@ const validateTime = (val: string) =>
   /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/.test(val);
 const fullColumns: TimePickerColumnType[] = ['hour', 'minute', 'second'];
 
+/**
+ * @summary TimePicker 时间选择 - 时间选择器，通常与弹出层组件配合使用
+ * @attr {string[]} v-model - 当前选中的时间
+ * @attr {string[]} columns-type - 选项类型，由 hour、minute 和 second 组成的数组，默认 ['hour', 'minute']
+ * @attr {number|string} min-hour - 可选的最小小时，默认 0
+ * @attr {number|string} max-hour - 可选的最大小时，默认 23
+ * @attr {number|string} min-minute - 可选的最小分钟，默认 0
+ * @attr {number|string} max-minute - 可选的最大分钟，默认 59
+ * @attr {number|string} min-second - 可选的最小秒数，默认 0
+ * @attr {number|string} max-second - 可选的最大秒数，默认 59
+ * @attr {string} min-time - 可选的最小时间，格式参考 07:40:00，使用时 min-hour min-minute min-second 不会生效
+ * @attr {string} max-time - 可选的最大时间，格式参考 10:20:00，使用时 max-hour max-minute max-second 不会生效
+ * @attr {string} title - 顶部栏标题
+ * @attr {string} confirm-button-text - 确认按钮文字，默认 确认
+ * @attr {string} cancel-button-text - 取消按钮文字，默认 取消
+ * @attr {boolean} show-toolbar - 是否显示顶部栏，默认 true
+ * @attr {boolean} loading - 是否显示加载状态，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下无法切换选项，默认 false
+ * @attr {Function} filter - 选项过滤函数
+ * @attr {Function} formatter - 选项格式化函数
+ * @attr {number|string} option-height - 选项高度，支持 px vw vh rem 单位，默认 44
+ * @attr {number|string} visible-option-num - 可见的选项个数，默认 6
+ * @attr {number|string} swipe-duration - 快速滑动时惯性滚动的时长，单位 ms，默认 1000
+ * @slot toolbar - 自定义整个顶部栏的内容
+ * @slot title - 自定义标题内容
+ * @slot confirm - 自定义确认按钮内容
+ * @slot cancel - 自定义取消按钮内容
+ * @slot option - 自定义选项内容
+ * @slot columns-top - 自定义选项上方内容
+ * @slot columns-bottom - 自定义选项下方内容
+ * @event confirm - 点击完成按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event cancel - 点击取消按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event change - 选项改变时触发，参数：{ selectedValues, selectedOptions, selectedIndexes, columnIndex }
+ */
 export const timePickerProps = extend({}, sharedProps, {
   minHour: makeNumericProp(0),
   maxHour: makeNumericProp(23),

@@ -30,6 +30,30 @@ import type { PickerExpose } from '../picker/types';
 
 const [name, bem] = createNamespace('area');
 
+/**
+ * @summary Area 省市区选择 - 省市区三级联动选择，通常与弹出层组件配合使用
+ * @attr {string} v-model - 当前选中项对应的地区码
+ * @attr {string} title - 顶部栏标题
+ * @attr {string} confirm-button-text - 确认按钮文字，默认 确认
+ * @attr {string} cancel-button-text - 取消按钮文字，默认 取消
+ * @attr {object} area-list - 省市区数据，默认 {}
+ * @attr {string[]} columns-placeholder - 列占位提示文字，默认 []
+ * @attr {boolean} loading - 是否显示加载状态，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下无法切换选项，默认 false
+ * @attr {number|string} option-height - 选项高度，支持 px vw vh rem 单位，默认 44
+ * @attr {number|string} columns-num - 显示列数，3-省市区，2-省市，1-省，默认 3
+ * @attr {number|string} visible-option-num - 可见的选项个数，默认 6
+ * @attr {number|string} swipe-duration - 快速滑动时惯性滚动的时长，单位 ms，默认 1000
+ * @slot toolbar - 自定义整个顶部栏的内容
+ * @slot title - 自定义标题内容
+ * @slot confirm - 自定义确认按钮内容
+ * @slot cancel - 自定义取消按钮内容
+ * @slot columns-top - 自定义选项上方内容
+ * @slot columns-bottom - 自定义选项下方内容
+ * @event confirm - 点击完成按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event cancel - 点击取消按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event change - 选项改变时触发，参数：{ selectedValues, selectedOptions, selectedIndexes, columnIndex }
+ */
 export const areaProps = extend({}, pick(pickerSharedProps, INHERIT_PROPS), {
   modelValue: String,
   columnsNum: makeNumericProp(3),

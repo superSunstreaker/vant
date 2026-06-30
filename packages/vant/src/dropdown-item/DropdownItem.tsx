@@ -34,6 +34,23 @@ import type { DropdownItemOption } from './types';
 
 const [name, bem] = createNamespace('dropdown-item');
 
+/**
+ * @summary DropdownItem 下拉菜单项 - 用于放置在 DropdownMenu 中的单个下拉菜单项
+ * @attr {number|string} v-model - 当前选中项对应的 value
+ * @attr {string} title - 菜单项标题，默认当前选中项文字
+ * @attr {DropdownItemOption[]} options - 选项数组，默认 []
+ * @attr {boolean} disabled - 是否禁用菜单，默认 false
+ * @attr {boolean} lazy-render - 是否在首次展开时才渲染菜单内容，默认 true
+ * @attr {string|Array|object} title-class - 标题额外类名
+ * @attr {string|Element} teleport - 指定挂载的节点
+ * @slot default - 菜单内容
+ * @slot title - 自定义菜单项标题
+ * @event change - 点击选项导致 value 变化时触发，参数：value
+ * @event open - 打开菜单栏时触发
+ * @event close - 关闭菜单栏时触发
+ * @event opened - 打开菜单栏且动画结束后触发
+ * @event closed - 关闭菜单栏且动画结束后触发
+ */
 export const dropdownItemProps = {
   title: String,
   options: makeArrayProp<DropdownItemOption>(),

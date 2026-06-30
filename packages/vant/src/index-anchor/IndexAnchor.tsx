@@ -24,6 +24,11 @@ import { useExpose } from '../composables/use-expose';
 
 const [name, bem] = createNamespace('index-anchor');
 
+/**
+ * @summary IndexAnchor 索引锚点 - 用于放置在 IndexBar 中的索引锚点
+ * @attr {number|string} index - 索引字符
+ * @slot default - 自定义锚点内容
+ */
 export const indexAnchorProps = {
   index: numericProp,
 };

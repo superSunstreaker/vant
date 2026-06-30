@@ -36,6 +36,19 @@ import type { DropdownMenuProvide, DropdownMenuDirection } from './types';
 
 const [name, bem] = createNamespace('dropdown-menu');
 
+/**
+ * @summary DropdownMenu 下拉菜单 - 向下弹出的菜单列表
+ * @attr {string} active-color - 菜单标题和选项的选中态颜色，默认 #1989fa
+ * @attr {string} direction - 菜单展开方向，可选值为 up，默认 down
+ * @attr {number|string} z-index - 菜单栏 z-index 层级，默认 10
+ * @attr {number|string} duration - 动画时长，单位秒，设置为 0 可以禁用动画，默认 0.2
+ * @attr {boolean} overlay - 是否显示遮罩层，默认 true
+ * @attr {boolean} close-on-click-overlay - 是否在点击遮罩层后关闭菜单，默认 true
+ * @attr {boolean} close-on-click-outside - 是否在点击外部元素后关闭菜单，默认 true
+ * @attr {number|string} swipe-threshold - 滚动阈值，选项数量超过阈值且总宽度超过菜单栏宽度时，可以横向滚动
+ * @attr {boolean} auto-locate - 当祖先元素设置了 transform 时，自动调整下拉菜单的位置，默认 false
+ * @slot default - 默认插槽，用于放置 DropdownItem
+ */
 export const dropdownMenuProps = {
   overlay: truthProp,
   zIndex: numericProp,

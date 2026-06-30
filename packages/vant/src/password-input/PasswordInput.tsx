@@ -12,6 +12,17 @@ import {
 
 const [name, bem] = createNamespace('password-input');
 
+/**
+ * @summary PasswordInput 密码输入框 - 带网格的输入框组件，可以用于输入密码、短信验证码等场景，通常与数字键盘组件配合使用
+ * @attr {string} value - 密码值，默认 ''
+ * @attr {string} info - 输入框下方文字提示
+ * @attr {string} error-info - 输入框下方错误提示
+ * @attr {number|string} length - 密码最大长度，默认 6
+ * @attr {number|string} gutter - 输入框格子之间的间距，默认单位为 px，默认 0
+ * @attr {boolean} mask - 是否隐藏密码内容，默认 true
+ * @attr {boolean} focused - 是否已聚焦，聚焦时会显示光标，默认 false
+ * @event focus - 输入框聚焦时触发
+ */
 export const passwordInputProps = {
   info: String,
   mask: truthProp,

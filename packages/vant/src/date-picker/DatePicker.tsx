@@ -29,6 +29,34 @@ const [name] = createNamespace('date-picker');
 
 export type DatePickerColumnType = 'year' | 'month' | 'day';
 
+/**
+ * @summary DatePicker 日期选择 - 日期选择器，用于选择年、月、日，通常与弹出层组件配合使用
+ * @attr {string[]} v-model - 当前选中的日期，默认 []
+ * @attr {string[]} columns-type - 选项类型，由 year、month 和 day 组成的数组，默认 ['year', 'month', 'day']
+ * @attr {Date} min-date - 可选的最小时间，精确到日，默认十年前
+ * @attr {Date} max-date - 可选的最大时间，精确到日，默认十年后
+ * @attr {string} title - 顶部栏标题
+ * @attr {string} confirm-button-text - 确认按钮文字，默认 确认
+ * @attr {string} cancel-button-text - 取消按钮文字，默认 取消
+ * @attr {boolean} show-toolbar - 是否显示顶部栏，默认 true
+ * @attr {boolean} loading - 是否显示加载状态，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下无法切换选项，默认 false
+ * @attr {Function} filter - 选项过滤函数
+ * @attr {Function} formatter - 选项格式化函数
+ * @attr {number|string} option-height - 选项高度，支持 px vw vh rem 单位，默认 44
+ * @attr {number|string} visible-option-num - 可见的选项个数，默认 6
+ * @attr {number|string} swipe-duration - 快速滑动时惯性滚动的时长，单位 ms，默认 1000
+ * @slot toolbar - 自定义整个顶部栏的内容
+ * @slot title - 自定义标题内容
+ * @slot confirm - 自定义确认按钮内容
+ * @slot cancel - 自定义取消按钮内容
+ * @slot option - 自定义选项内容
+ * @slot columns-top - 自定义选项上方内容
+ * @slot columns-bottom - 自定义选项下方内容
+ * @event confirm - 点击完成按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event cancel - 点击取消按钮时触发，参数：{ selectedValues, selectedOptions, selectedIndexes }
+ * @event change - 选项改变时触发，参数：{ selectedValues, selectedOptions, selectedIndexes, columnIndex }
+ */
 export const datePickerProps = extend({}, sharedProps, {
   columnsType: {
     type: Array as PropType<DatePickerColumnType[]>,

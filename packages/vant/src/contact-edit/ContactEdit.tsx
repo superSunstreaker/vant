@@ -29,6 +29,19 @@ const DEFAULT_CONTACT: ContactEditInfo = {
   name: '',
 };
 
+/**
+ * @summary ContactEdit 联系人编辑 - 编辑并保存联系人信息
+ * @attr {ContactEditInfo} contact-info - 联系人信息，默认 {}
+ * @attr {boolean} is-edit - 是否为编辑联系人，默认 false
+ * @attr {boolean} is-saving - 是否显示保存按钮加载动画，默认 false
+ * @attr {boolean} is-deleting - 是否显示删除按钮加载动画，默认 false
+ * @attr {Function} tel-validator - 手机号格式校验函数
+ * @attr {boolean} show-set-default - 是否显示默认联系人栏，默认 false
+ * @attr {string} set-default-label - 默认联系人栏文案
+ * @event save - 点击保存按钮时触发，参数：content: 表单内容
+ * @event delete - 点击删除按钮时触发，参数：content: 表单内容
+ * @event change-default - 切换是否为默认联系人时触发，参数：checked: 是否默认
+ */
 export const contactEditProps = {
   isEdit: Boolean,
   isSaving: Boolean,

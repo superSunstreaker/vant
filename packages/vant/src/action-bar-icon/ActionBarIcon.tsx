@@ -12,6 +12,20 @@ import { Badge, type BadgeProps } from '../badge';
 
 const [name, bem] = createNamespace('action-bar-icon');
 
+/**
+ * @summary ActionBarIcon 动作栏图标 - 用于在 ActionBar 中放置图标按钮
+ * @attr {string} text - 按钮文字
+ * @attr {string} icon - 图标
+ * @attr {string} color - 图标颜色，默认 #323233
+ * @attr {string|Array|object} icon-class - 图标额外类名
+ * @attr {string} icon-prefix - 图标类名前缀，默认 van-icon
+ * @attr {boolean} dot - 是否显示图标右上角小红点，默认 false
+ * @attr {number|string} badge - 图标右上角徽标的内容
+ * @attr {BadgeProps} badge-props - 自定义徽标的属性，传入的对象会被透传给 Badge 组件的 props
+ * @attr {boolean} disabled - 是否禁用图标，默认 false
+ * @slot default - 文本内容
+ * @slot icon - 自定义图标
+ */
 export const actionBarIconProps = extend({}, routeProps, {
   dot: Boolean,
   text: String,

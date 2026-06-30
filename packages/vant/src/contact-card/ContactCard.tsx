@@ -6,6 +6,15 @@ const [name, bem, t] = createNamespace('contact-card');
 
 export type ContactCardType = 'add' | 'edit';
 
+/**
+ * @summary ContactCard 联系人卡片 - 以卡片的形式展示联系人信息
+ * @attr {string} type - 卡片类型，可选值为 edit，默认 add
+ * @attr {string} name - 联系人姓名
+ * @attr {string} tel - 联系人手机号
+ * @attr {string} add-text - 添加时的文案提示，默认 添加联系人
+ * @attr {boolean} editable - 是否可以编辑联系人，默认 true
+ * @event click - 点击时触发，参数：event: MouseEvent
+ */
 export const contactCardProps = {
   tel: String,
   name: String,

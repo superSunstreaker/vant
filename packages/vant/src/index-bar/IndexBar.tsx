@@ -52,6 +52,18 @@ function genAlphabet() {
 
 const [name, bem] = createNamespace('index-bar');
 
+/**
+ * @summary IndexBar 索引栏 - 用于列表的索引分类显示和快速定位
+ * @attr {(string|number)[]} index-list - 索引字符列表，默认 A-Z
+ * @attr {number|string} z-index - z-index 层级，默认 1
+ * @attr {boolean} sticky - 是否开启锚点自动吸顶，默认 true
+ * @attr {number} sticky-offset-top - 锚点自动吸顶时与顶部的距离，默认 0
+ * @attr {string} highlight-color - 索引字符高亮颜色，默认 #1989fa
+ * @attr {string|Element} teleport - 指定索引栏挂载的节点
+ * @slot default - 默认插槽，用于放置 IndexAnchor 和其他内容
+ * @event select - 点击索引栏的字符时触发，参数：index: number|string
+ * @event change - 当前高亮的索引字符变化时触发，参数：index: number|string
+ */
 export const indexBarProps = {
   sticky: truthProp,
   zIndex: numericProp,

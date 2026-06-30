@@ -30,6 +30,26 @@ const [name, bem] = createNamespace('collapse-item');
 
 const CELL_SLOTS = ['icon', 'title', 'value', 'label', 'right-icon'] as const;
 
+/**
+ * @summary CollapseItem 折叠面板项 - 用于放置在 Collapse 中的单个折叠面板
+ * @attr {number|string} name - 唯一标识符，默认为索引值
+ * @attr {string} icon - 标题栏左侧图标名称或图片链接
+ * @attr {string} size - 标题栏大小，可选值为 large
+ * @attr {number|string} title - 标题栏左侧内容
+ * @attr {number|string} value - 标题栏右侧内容
+ * @attr {number|string} label - 标题栏描述信息
+ * @attr {boolean} border - 是否显示内边框，默认 true
+ * @attr {boolean} is-link - 是否展示标题栏右侧箭头并开启点击反馈，默认 true
+ * @attr {boolean} disabled - 是否禁用面板，默认 false
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下无法操作面板，默认 false
+ * @attr {boolean} lazy-render - 是否在首次展开时才渲染面板内容，默认 true
+ * @slot default - 面板内容
+ * @slot title - 自定义标题栏左侧内容
+ * @slot value - 自定义标题栏右侧内容
+ * @slot label - 自定义标题栏描述信息
+ * @slot icon - 自定义标题栏左侧图标
+ * @slot right-icon - 自定义标题栏右侧图标
+ */
 export const collapseItemProps = extend({}, cellSharedProps, {
   name: numericProp,
   isLink: truthProp,

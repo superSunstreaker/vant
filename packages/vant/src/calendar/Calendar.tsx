@@ -55,6 +55,55 @@ import type {
   CalendarMonthInstance,
 } from './types';
 
+/**
+ * @summary Calendar 日历 - 日历组件用于选择日期或日期区间
+ * @attr {boolean} v-model:show - 是否显示日历弹窗，默认 false
+ * @attr {CalendarType} type - 选择类型，可选值为 multiple / range，默认 single
+ * @attr {CalendarSwitchMode} switch-mode - 切换模式，可选值为 month / year-month，默认 none
+ * @attr {string} title - 日历标题，默认 日期选择
+ * @attr {string} color - 主题色，对底部按钮和选中日期生效，默认 #1989fa
+ * @attr {Date} min-date - 可选择的最小日期
+ * @attr {Date} max-date - 可选择的最大日期
+ * @attr {Date|Date[]|null} default-date - 默认选中的日期，默认今天
+ * @attr {number|string} row-height - 日期行高，默认 64
+ * @attr {Function} formatter - 日期格式化函数
+ * @attr {boolean} poppable - 是否以弹层的形式展示日历，默认 true
+ * @attr {boolean} lazy-render - 是否只渲染可视区域的内容，默认 true
+ * @attr {boolean} show-mark - 是否显示月份背景水印，默认 true
+ * @attr {boolean} show-title - 是否展示日历标题，默认 true
+ * @attr {boolean} show-subtitle - 是否展示日历副标题，默认 true
+ * @attr {boolean} show-confirm - 是否展示确认按钮，默认 true
+ * @attr {boolean} readonly - 是否为只读状态，只读状态下不能选择日期，默认 false
+ * @attr {string} confirm-text - 确认按钮的文字，默认 确认
+ * @attr {string} confirm-disabled-text - 确认按钮处于禁用状态时的文字，默认 确认
+ * @attr {number} first-day-of-week - 设置周起始日，0-6，默认 0
+ * @attr {string} position - 弹出位置，可选值为 top / right / left，默认 bottom
+ * @attr {boolean} round - 是否显示圆角弹窗，默认 true
+ * @attr {boolean} close-on-popstate - 是否在页面回退时自动关闭，默认 true
+ * @attr {boolean} close-on-click-overlay - 是否在点击遮罩层后关闭，默认 true
+ * @attr {boolean} safe-area-inset-top - 是否开启顶部安全区适配，默认 false
+ * @attr {boolean} safe-area-inset-bottom - 是否开启底部安全区适配，默认 true
+ * @attr {string|Element} teleport - 指定挂载的节点
+ * @attr {number|string} max-range - 日期区间最多可选天数
+ * @attr {string} range-prompt - 范围选择超过最多可选天数时的提示文案
+ * @attr {boolean} show-range-prompt - 范围选择超过最多可选天数时，是否展示提示文案，默认 true
+ * @attr {boolean} allow-same-day - 是否允许日期范围的起止时间为同一天，默认 false
+ * @slot title - 自定义标题
+ * @slot subtitle - 自定义日历副标题
+ * @slot footer - 自定义底部区域内容
+ * @slot confirm-text - 自定义确认按钮的内容
+ * @slot top-info - 自定义日期上方的提示信息
+ * @slot bottom-info - 自定义日期下方的提示信息
+ * @slot text - 自定义日期内容
+ * @event select - 点击并选中任意日期时触发，参数：value: Date | Date[]
+ * @event confirm - 日期选择完成后触发，参数：value: Date | Date[]
+ * @event unselect - 当 type 为 multiple 时，取消选中日期时触发，参数：value: Date
+ * @event month-show - 当某个月份进入可视区域时触发，参数：{ date: Date, title: string }
+ * @event over-range - 范围选择超过最多可选天数时触发
+ * @event click-subtitle - 点击日历副标题时触发，参数：event: MouseEvent
+ * @event click-disabled-date - 点击禁用日期时触发，参数：value: Date | Date[]
+ * @event panel-change - 日历面板切换时触发，参数：{ date: Date }
+ */
 export const calendarProps = {
   show: Boolean,
   type: makeStringProp<CalendarType>('single'),

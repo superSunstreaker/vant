@@ -21,6 +21,17 @@ import { useExpose } from '../composables/use-expose';
 
 const [name, bem] = createNamespace('text-ellipsis');
 
+/**
+ * @summary TextEllipsis 文本省略 - 对长文本进行省略，支持展开/收起
+ * @attr {number|string} rows - 展示的行数，默认 1
+ * @attr {string} content - 需要展示的文本
+ * @attr {string} expand-text - 展开操作的文案
+ * @attr {string} collapse-text - 收起操作的文案
+ * @attr {string} dots - 省略号的文本内容，默认 ...
+ * @attr {string} position - 省略位置，可选值为 start / middle，默认 end
+ * @slot action - 自定义操作
+ * @event click-action - 点击展开/收起时触发，参数：event: MouseEvent
+ */
 export const textEllipsisProps = {
   rows: makeNumericProp(1),
   dots: makeStringProp('...'),
@@ -86,7 +97,7 @@ export default defineComponent({
       const end = content.length;
       const middle = (0 + end) >> 1;
       const actionHTML = slots.action
-        ? actionRef.value?.outerHTML ?? ''
+        ? (actionRef.value?.outerHTML ?? '')
         : props.expandText;
 
       const calcEllipse = () => {

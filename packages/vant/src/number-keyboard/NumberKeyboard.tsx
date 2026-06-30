@@ -41,6 +41,35 @@ type KeyConfig = {
   wider?: boolean;
 };
 
+/**
+ * @summary NumberKeyboard 数字键盘 - 虚拟数字键盘，可以配合密码输入框组件或自定义的输入框组件使用
+ * @attr {string} v-model - 当前输入值
+ * @attr {boolean} show - 是否显示键盘
+ * @attr {string} title - 键盘标题
+ * @attr {NumberKeyboardTheme} theme - 样式风格，可选值为 custom，默认 default
+ * @attr {number|string} maxlength - 输入值最大长度，默认 Infinity
+ * @attr {boolean} transition - 是否开启过场动画，默认 true
+ * @attr {number|string} z-index - 键盘 z-index 层级，默认 100
+ * @attr {string|string[]} extra-key - 底部额外按键的内容，默认 ''
+ * @attr {string} close-button-text - 关闭按钮文字，空则不展示
+ * @attr {string} delete-button-text - 删除按钮文字，空则展示删除图标
+ * @attr {boolean} close-button-loading - 是否将关闭按钮设置为加载中状态，仅在 theme="custom" 时有效，默认 false
+ * @attr {boolean} show-delete-key - 是否展示删除图标，默认 true
+ * @attr {boolean} blur-on-close - 是否在点击关闭按钮时触发 blur 事件，默认 true
+ * @attr {boolean} hide-on-click-outside - 是否在点击外部时收起键盘，默认 true
+ * @attr {string|Element} teleport - 指定挂载的节点
+ * @attr {boolean} safe-area-inset-bottom - 是否开启底部安全区适配，默认 true
+ * @attr {boolean} random-key-order - 是否通过随机顺序展示按键，默认 false
+ * @slot delete - 自定义删除按键内容
+ * @slot extra-key - 自定义左下角按键内容
+ * @slot title-left - 自定义标题栏左侧内容
+ * @event input - 点击按键时触发，参数：key: string
+ * @event delete - 点击删除键时触发
+ * @event close - 点击关闭按钮时触发
+ * @event blur - 点击关闭按钮或非键盘区域时触发
+ * @event show - 键盘完全弹出时触发
+ * @event hide - 键盘完全收起时触发
+ */
 export const numberKeyboardProps = {
   show: Boolean,
   title: String,
